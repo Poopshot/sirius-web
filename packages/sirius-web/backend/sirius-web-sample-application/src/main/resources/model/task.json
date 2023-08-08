@@ -1,0 +1,145 @@
+{
+  "json": { "version": "1.0", "encoding": "utf-8" },
+  "ns": { "task": "domain://task" },
+  "content": [
+    {
+      "id": "a61cf872-45fb-4060-8a44-ed6cf5e6d91b",
+      "eClass": "task:Company",
+      "data": {
+        "name": "World Company",
+        "ownedObjectives": [
+          {
+            "id": "a44764ff-139e-4da7-866b-21e6bbbad10c",
+            "eClass": "task:Objective",
+            "data": {
+              "ownedKeyResults": [
+                {
+                  "id": "18ed4168-bbe0-4f85-b68c-843e124c5a36",
+                  "eClass": "task:KeyResult",
+                  "data": {
+                    "ownedInitiatives": [
+                      {
+                        "id": "594d1b1b-72db-46de-83a8-7463ba18cc02",
+                        "eClass": "task:Initiative"
+                      }
+                    ]
+                  }
+                }
+              ]
+            }
+          }
+        ],
+        "ownedTeams": [
+          {
+            "id": "f96446a3-9ccd-4edc-97b1-fc16eee2f225",
+            "eClass": "task:Team",
+            "data": { "name": "Team 1" }
+          }
+        ],
+        "ownedPersons": [
+          {
+            "id": "c885648b-ae37-4426-b269-ff43650b61dd",
+            "eClass": "task:Person",
+            "data": { "name": "Bob" }
+          },
+          {
+            "id": "04726efa-44f2-46cc-934c-e664e15159c9",
+            "eClass": "task:Person",
+            "data": { "name": "Paul" }
+          }
+        ]
+      }
+    },
+    {
+      "id": "24c5f82f-9c18-42b7-b568-3317ffa9d158",
+      "eClass": "task:Initiative",
+      "data": {
+        "subTasks": [
+          {
+            "id": "4009f05f-16e4-4119-bb58-ecb7b74bc928",
+            "eClass": "task:Task",
+            "data": {
+              "name": "Some Project",
+              "startDate": "2023-09-10T06:30",
+              "endDate": "2023-09-20T18:30",
+              "withDuration": true,
+              "subTasks": [
+                {
+                  "id": "3433dfe2-0ab2-4841-a4f7-c215526ec4b9",
+                  "eClass": "task:Task",
+                  "data": {
+                    "name": "Idea",
+                    "description": "This is a brain storming to get the best ideas",
+                    "startDate": "2023-09-15T06:30",
+                    "endDate": "2023-09-15T16:30",
+                    "progress": 30,
+                    "withDuration": true
+                  }
+                },
+                {
+                  "id": "cdb981d0-ad3e-4492-8973-59ae82c0c263",
+                  "eClass": "task:Task",
+                  "data": {
+                    "name": "Research",
+                    "startDate": "2023-09-15T16:30",
+                    "endDate": "2023-09-16T16:30",
+                    "withDuration": true
+                  }
+                },
+                {
+                  "id": "17fb67f7-f01a-42d8-b42d-b1352ef973b5",
+                  "eClass": "task:Task",
+                  "data": {
+                    "name": "Team",
+                    "startDate": "2023-09-17T08:30",
+                    "endDate": "2023-09-17T18:30",
+                    "progress": 70,
+                    "type": 1,
+                    "withDuration": true,
+                    "subTasks": [
+                      {
+                        "id": "ffa9c285-e121-42c2-a73d-09cbc60d652b",
+                        "eClass": "task:Task",
+                        "data": {
+                          "name": "Developping",
+                          "startDate": "2023-09-17T08:30",
+                          "endDate": "2023-09-17T12:30",
+                          "withDuration": true
+                        }
+                      },
+                      {
+                        "id": "3c212a1f-c33a-47b9-a310-c420192d5fc4",
+                        "eClass": "task:Task",
+                        "data": {
+                          "name": "Review",
+                          "startDate": "2023-09-17T12:30",
+                          "endDate": "2023-09-17T18:30",
+                          "progress": 40,
+                          "withDuration": true,
+                          "dependencies": [
+                            "/1/@subTasks.0/@subTasks.2/@subTasks.0"
+                          ]
+                        }
+                      }
+                    ],
+                    "assignees": ["/0/@ownedPersons.0"]
+                  }
+                },
+                {
+                  "id": "365d8de4-353f-43e0-b8d4-9346749dbeed",
+                  "eClass": "task:Task",
+                  "data": {
+                    "name": "Release",
+                    "startDate": "2023-09-18T12:30",
+                    "endDate": "2023-09-18T14:30",
+                    "type": 2
+                  }
+                }
+              ]
+            }
+          }
+        ]
+      }
+    }
+  ]
+}
