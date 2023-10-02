@@ -73,6 +73,11 @@
 		</dependency>
 		<dependency>
 			<groupId>org.eclipse.sirius</groupId>
+			<artifactId>sirius-components-view-gantt</artifactId>
+			<version>2023.8.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.eclipse.sirius</groupId>
 			<artifactId>sirius-components-compatibility-emf</artifactId>
 			<version>2023.8.4</version>
 		</dependency>

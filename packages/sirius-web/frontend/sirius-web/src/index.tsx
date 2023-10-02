@@ -34,6 +34,7 @@ import {
   PropertySectionContextValue,
   WidgetContribution,
 } from '@eclipse-sirius/sirius-components-forms';
+import { GanttRepresentation } from '@eclipse-sirius/sirius-components-gantt';
 import {
   ReferenceIcon,
   ReferencePreview,
@@ -141,6 +142,8 @@ const registry: RepresentationComponentRegistry = {
       return FormRepresentation;
     } else if (type === 'FormDescriptionEditor') {
       return FormDescriptionEditorRepresentation;
+    } else if (type === 'Gantt') {
+      return GanttRepresentation;
     }
     return null;
   },

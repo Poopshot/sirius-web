@@ -38,7 +38,9 @@ import org.eclipse.sirius.components.view.diagram.NodeDescription;
 import org.eclipse.sirius.components.view.emf.IViewRepresentationDescriptionSearchService;
 import org.eclipse.sirius.components.view.emf.diagram.IDiagramIdProvider;
 import org.eclipse.sirius.components.view.emf.form.IFormIdProvider;
+import org.eclipse.sirius.components.view.emf.task.IGanttIdProvider;
 import org.eclipse.sirius.components.view.form.FormDescription;
+import org.eclipse.sirius.components.view.gantt.GanttDescription;
 import org.eclipse.sirius.emfjson.resource.JsonResource;
 import org.eclipse.sirius.web.persistence.entities.DocumentEntity;
 import org.eclipse.sirius.web.persistence.repositories.IDocumentRepository;
@@ -71,15 +73,19 @@ public class ViewRepresentationDescriptionSearchService implements IViewRepresen
 
     private final IFormIdProvider formIdProvider;
 
+    private final IGanttIdProvider ganttIdProvider;
+
     private final IObjectService objectService;
 
-    public ViewRepresentationDescriptionSearchService(IDocumentRepository documentRepository, EPackage.Registry ePackageRegistry, IDiagramIdProvider diagramIdProvider, IURLParser urlParser, IFormIdProvider formIdProvider, IObjectService objectService, IInMemoryViewRegistry inMemoryViewRegistry) {
-        this.urlParser = Objects.requireNonNull(urlParser);
-        this.documentRepository = Objects.requireNonNull(documentRepository);
-        this.ePackageRegistry = Objects.requireNonNull(ePackageRegistry);
-        this.diagramIdProvider = Objects.requireNonNull(diagramIdProvider);
-        this.formIdProvider = Objects.requireNonNull(formIdProvider);
-        this.objectService = Objects.requireNonNull(objectService);
+    public ViewRepresentationDescriptionSearchService(ViewRepresentationDescriptionSearchServiceParameters viewRepresentationDescriptionSearchServiceParameters,
+            IInMemoryViewRegistry inMemoryViewRegistry) {
+        this.urlParser = Objects.requireNonNull(viewRepresentationDescriptionSearchServiceParameters.getUrlParser());
+        this.documentRepository = Objects.requireNonNull(viewRepresentationDescriptionSearchServiceParameters.getDocumentRepository());
+        this.ePackageRegistry = Objects.requireNonNull(viewRepresentationDescriptionSearchServiceParameters.getePackageRegistry());
+        this.diagramIdProvider = Objects.requireNonNull(viewRepresentationDescriptionSearchServiceParameters.getDiagramIdProvider());
+        this.formIdProvider = Objects.requireNonNull(viewRepresentationDescriptionSearchServiceParameters.getFormIdProvider());
+        this.ganttIdProvider = Objects.requireNonNull(viewRepresentationDescriptionSearchServiceParameters.getGanttIdProvider());
+        this.objectService = Objects.requireNonNull(viewRepresentationDescriptionSearchServiceParameters.getObjectService());
         this.inMemoryViewRegistry = Objects.requireNonNull(inMemoryViewRegistry);
     }
 
@@ -100,6 +106,7 @@ public class ViewRepresentationDescriptionSearchService implements IViewRepresen
         }
         return Optional.empty();
     }
+
     @Override
     public Optional<NodeDescription> findViewNodeDescriptionById(String nodeDescriptionId) {
         Optional<String> sourceId = this.getSourceId(nodeDescriptionId);
@@ -107,7 +114,6 @@ public class ViewRepresentationDescriptionSearchService implements IViewRepresen
         if (sourceId.isPresent() && sourceElementId.isPresent()) {
             List<View> views = this.getViewsFromSourceId(sourceId.get());
             if (!views.isEmpty()) {
-                // @formatter:off
                 var searchedViewNodes = views.stream()
                         .flatMap(view -> view.getDescriptions().stream())
                         .filter(DiagramDescription.class::isInstance)
@@ -115,7 +121,6 @@ public class ViewRepresentationDescriptionSearchService implements IViewRepresen
                         .map(diagramDescription -> this.findNodeDescriptionById(diagramDescription, sourceElementId.get()))
                         .flatMap(Optional::stream)
                         .findFirst();
-                // @formatter:on
                 return searchedViewNodes;
             }
         }
@@ -129,7 +134,6 @@ public class ViewRepresentationDescriptionSearchService implements IViewRepresen
         if (sourceId.isPresent() && sourceElementId.isPresent()) {
             List<View> views = this.getViewsFromSourceId(sourceId.get());
             if (!views.isEmpty()) {
-                // @formatter:off
                 var searchedViewNodes = views.stream()
                         .flatMap(view -> view.getDescriptions().stream())
                         .filter(DiagramDescription.class::isInstance)
@@ -137,7 +141,6 @@ public class ViewRepresentationDescriptionSearchService implements IViewRepresen
                         .map(diagramDescription -> this.findEdgeDescriptionById(diagramDescription, sourceElementId.get()))
                         .flatMap(Optional::stream)
                         .findFirst();
-                // @formatter:on
                 return searchedViewNodes;
             }
         }
@@ -182,6 +185,8 @@ public class ViewRepresentationDescriptionSearchService implements IViewRepresen
             result = this.diagramIdProvider.getId(diagramDescription);
         } else if (description instanceof FormDescription formDescription) {
             result = this.formIdProvider.getId(formDescription);
+        } else if (description instanceof GanttDescription ganttDescription) {
+            result = this.ganttIdProvider.getId(ganttDescription);
         } else {
             String descriptionURI = EcoreUtil.getURI(description).toString();
             result = UUID.nameUUIDFromBytes(descriptionURI.getBytes()).toString();
