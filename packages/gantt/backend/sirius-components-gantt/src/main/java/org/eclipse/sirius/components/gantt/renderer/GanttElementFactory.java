@@ -58,7 +58,7 @@ public class GanttElementFactory implements IElementFactory {
                 .toList();
         // @formatter:on
 
-        return new Task(props.id(), props.descriptionId(), props.targetObjectId(), props.detail(), subTasks);
+        return new Task(props.id(), props.descriptionId(), props.targetObjectId(), props.targetObjectKind(), props.targetObjectLabel(), props.detail(), subTasks);
     }
 
 }

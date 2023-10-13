@@ -27,12 +27,15 @@ import org.eclipse.sirius.components.representations.VariableManager;
  * @author lfasani
  */
 @PublicApi
-public record TaskDescription(String id, Function<VariableManager, String> targetObjectIdProvider, Function<VariableManager, List<Object>> semanticElementsProvider,
-        Function<VariableManager, TaskDetail> taskDetailProvider, List<String> reusedTaskDescriptionIds, List<TaskDescription> subTaskDescriptions) {
+public record TaskDescription(String id, Function<VariableManager, String> targetObjectIdProvider, Function<VariableManager, String> targetObjectKindProvider,
+        Function<VariableManager, String> targetObjectLabelProvider, Function<VariableManager, List<Object>> semanticElementsProvider, Function<VariableManager, TaskDetail> taskDetailProvider,
+        List<String> reusedTaskDescriptionIds, List<TaskDescription> subTaskDescriptions) {
 
     public TaskDescription {
         Objects.requireNonNull(id);
         Objects.requireNonNull(targetObjectIdProvider);
+        Objects.requireNonNull(targetObjectKindProvider);
+        Objects.requireNonNull(targetObjectLabelProvider);
         Objects.requireNonNull(semanticElementsProvider);
         Objects.requireNonNull(taskDetailProvider);
         Objects.requireNonNull(reusedTaskDescriptionIds);
@@ -60,6 +63,10 @@ public record TaskDescription(String id, Function<VariableManager, String> targe
 
         private Function<VariableManager, String> targetObjectIdProvider;
 
+        private Function<VariableManager, String> targetObjectKindProvider;
+
+        private Function<VariableManager, String> targetObjectLabelProvider;
+
         private Function<VariableManager, List<Object>> semanticElementsProvider;
 
         private Function<VariableManager, TaskDetail> taskDetailProvider;
@@ -77,6 +84,16 @@ public record TaskDescription(String id, Function<VariableManager, String> targe
             return this;
         }
 
+        public Builder targetObjectKindProvider(Function<VariableManager, String> targetObjectKindProvider) {
+            this.targetObjectKindProvider = Objects.requireNonNull(targetObjectKindProvider);
+            return this;
+        }
+
+        public Builder targetObjectLabelProvider(Function<VariableManager, String> targetObjectLabelProvider) {
+            this.targetObjectLabelProvider = Objects.requireNonNull(targetObjectLabelProvider);
+            return this;
+        }
+
         public Builder semanticElementsProvider(Function<VariableManager, List<Object>> semanticElementsProvider) {
             this.semanticElementsProvider = Objects.requireNonNull(semanticElementsProvider);
             return this;
@@ -91,14 +108,15 @@ public record TaskDescription(String id, Function<VariableManager, String> targe
             this.reusedTaskDescriptionIds = Objects.requireNonNull(reusedTaskDescriptionIds);
             return this;
         }
+
         public Builder subTaskDescriptions(List<TaskDescription> subTaskDescriptions) {
             this.subTaskDescriptions = Objects.requireNonNull(subTaskDescriptions);
             return this;
         }
 
         public TaskDescription build() {
-            TaskDescription ganttDescription = new TaskDescription(this.id, this.targetObjectIdProvider, this.semanticElementsProvider, this.taskDetailProvider, this.reusedTaskDescriptionIds,
-                    this.subTaskDescriptions);
+            TaskDescription ganttDescription = new TaskDescription(this.id, this.targetObjectIdProvider, this.targetObjectKindProvider, this.targetObjectLabelProvider, this.semanticElementsProvider,
+                    this.taskDetailProvider, this.reusedTaskDescriptionIds, this.subTaskDescriptions);
             return ganttDescription;
         }
     }

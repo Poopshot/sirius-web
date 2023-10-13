@@ -26,6 +26,8 @@ type Task {
   id: ID!
   descriptionId: ID!
   targetObjectId: String!
+  targetObjectKind: String!
+  targetObjectLabel: String!
   detail: TaskDetail!
   style: TaskStyle
   subTasks: [Task!]

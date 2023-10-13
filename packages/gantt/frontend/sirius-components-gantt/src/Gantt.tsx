@@ -10,13 +10,15 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-import { Gantt as GanttDiagram, TaskListColumnEnum, ViewMode } from '@SemanticBoard/gantt-task-react';
+import { Gantt as GanttDiagram, Task, TaskListColumnEnum, ViewMode } from '@SemanticBoard/gantt-task-react';
 import '@SemanticBoard/gantt-task-react/dist/index.css';
+import { Selection } from '@eclipse-sirius/sirius-components-core';
 import { useState } from 'react';
 import { GanttProps } from './Gantt.types';
+import { SelectableTask } from './representation/GanttRepresentation.types';
 import { Toolbar } from './toolbar/Toolbar';
 
-export const Gantt = ({ tasks, onTaskChange, onSelect, onExpandCollapse, onTaskDelete }: GanttProps) => {
+export const Gantt = ({ tasks, onTaskChange, setSelection, onExpandCollapse, onTaskDelete }: GanttProps) => {
   const [zoomLevel, setZoomLevel] = useState<ViewMode>(ViewMode.Day);
   const allColumns = [
     { columntype: TaskListColumnEnum.NAME, columnWidth: '120px' },
@@ -96,6 +98,20 @@ export const Gantt = ({ tasks, onTaskChange, onSelect, onExpandCollapse, onTaskD
     setColumns(newColumns);
   };
 
+  const handleSelection = (task: Task) => {
+    const selectableTask = task as SelectableTask;
+    const newSelection: Selection = {
+      entries: [
+        {
+          id: selectableTask.targetObjectId,
+          label: selectableTask.targetObjectLabel,
+          kind: selectableTask.targetObjectKind,
+        },
+      ],
+    };
+
+    setSelection(newSelection);
+  };
   const toolbarColumns = columns.map((col) => col.columntype);
 
   return (
@@ -117,7 +133,7 @@ export const Gantt = ({ tasks, onTaskChange, onSelect, onExpandCollapse, onTaskD
         onProgressChange={onTaskChange}
         onDelete={onTaskDelete}
         onDoubleClick={onExpandCollapse}
-        onSelect={onSelect}
+        onSelect={handleSelection}
         onExpanderClick={onExpandCollapse}
         columnWidth={columnWidth}
         onWheel={onwheel}

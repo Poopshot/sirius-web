@@ -15,6 +15,7 @@ package org.eclipse.sirius.components.view.emf.task;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.function.Function;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
@@ -46,11 +47,21 @@ public class ViewGanttDescriptionConverter implements IRepresentationDescription
 
     private final IObjectService objectService;
 
+    private final Function<VariableManager, String> semanticTargetIdProvider;
+
+    private final Function<VariableManager, String> semanticTargetKindProvider;
+
+    private final Function<VariableManager, String> semanticTargetLabelProvider;
+
     private GanttIdProvider ganttIdProvider;
 
     public ViewGanttDescriptionConverter(IObjectService objectService, GanttIdProvider ganttIdProvider) {
         this.objectService = Objects.requireNonNull(objectService);
         this.ganttIdProvider = ganttIdProvider;
+        this.semanticTargetIdProvider = variableManager -> this.self(variableManager).map(this.objectService::getId).orElse(null);
+        this.semanticTargetKindProvider = variableManager -> this.self(variableManager).map(this.objectService::getKind).orElse(null);
+        this.semanticTargetLabelProvider = variableManager -> this.self(variableManager).map(this.objectService::getLabel).orElse(null);
+
     }
 
     @Override
@@ -64,13 +75,13 @@ public class ViewGanttDescriptionConverter implements IRepresentationDescription
 
         List<TaskDescription> taskDescriptions = viewGanttDescription.getTaskElementDescriptions().stream().map(taskDescription -> this.convert(taskDescription, interpreter)).toList();
 
-        return GanttDescription.newGanttDescription(this.ganttIdProvider.getId(viewGanttDescription))//
-                .label(Optional.ofNullable(viewGanttDescription.getName()).orElse(DEFAULT_GANTT_DESCRIPTION_LABEL))//
-                .idProvider(new GetOrCreateRandomIdProvider())//
-                .canCreatePredicate(variableManager -> this.canCreate(viewGanttDescription.getDomainType(), viewGanttDescription.getPreconditionExpression(), variableManager, interpreter))//
-                .labelProvider(variableManager -> this.computeGanttLabel(viewGanttDescription, variableManager, interpreter))//
-                .targetObjectIdProvider(variableManager -> this.getTargetObjectId(variableManager))//
-                .taskDescriptions(taskDescriptions)//
+        return GanttDescription.newGanttDescription(this.ganttIdProvider.getId(viewGanttDescription))
+                .label(Optional.ofNullable(viewGanttDescription.getName()).orElse(DEFAULT_GANTT_DESCRIPTION_LABEL))
+                .idProvider(new GetOrCreateRandomIdProvider())
+                .canCreatePredicate(variableManager -> this.canCreate(viewGanttDescription.getDomainType(), viewGanttDescription.getPreconditionExpression(), variableManager, interpreter))
+                .labelProvider(variableManager -> this.computeGanttLabel(viewGanttDescription, variableManager, interpreter))
+                .targetObjectIdProvider(this.semanticTargetIdProvider)
+                .taskDescriptions(taskDescriptions)
                 .build();
     }
 
@@ -79,7 +90,9 @@ public class ViewGanttDescriptionConverter implements IRepresentationDescription
         TaskDescription taskDescription = TaskDescription.newTaskDescription(this.ganttIdProvider.getId(viewTaskDescription))//
                 .semanticElementsProvider(variableManager -> this.getSemanticElements(viewTaskDescription, variableManager, interpreter))//
                 .taskDetailProvider(variableManager -> this.getTaskDetail(viewTaskDescription, variableManager, interpreter))//
-                .targetObjectIdProvider(variableManager -> this.getTargetObjectId(variableManager))//
+                .targetObjectIdProvider(this.semanticTargetIdProvider)
+                .targetObjectKindProvider(this.semanticTargetKindProvider)
+                .targetObjectLabelProvider(this.semanticTargetLabelProvider)
                 .reusedTaskDescriptionIds(reusedTaskDescriptionIds).build();
         return taskDescription;
     }
@@ -98,13 +111,6 @@ public class ViewGanttDescriptionConverter implements IRepresentationDescription
                 .filter(EObject.class::isInstance)//
                 .toList();
         return semanticObjects;
-    }
-
-    private String getTargetObjectId(VariableManager variableManager) {
-        String targetObjectId = variableManager.get(VariableManager.SELF, Object.class)//
-                .map(this.objectService::getId)//
-                .orElse(null);
-        return targetObjectId;
     }
 
     private boolean canCreate(String domainType, String preconditionExpression, VariableManager variableManager, AQLInterpreter interpreter) {
@@ -132,5 +138,9 @@ public class ViewGanttDescriptionConverter implements IRepresentationDescription
 
     private String evaluateString(AQLInterpreter interpreter, VariableManager variableManager, String expression) {
         return interpreter.evaluateExpression(variableManager.getVariables(), expression).asString().orElse("");
+    }
+
+    private Optional<Object> self(VariableManager variableManager) {
+        return variableManager.get(VariableManager.SELF, Object.class);
     }
 }

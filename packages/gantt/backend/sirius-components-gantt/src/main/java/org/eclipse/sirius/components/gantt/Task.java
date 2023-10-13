@@ -20,11 +20,13 @@ import java.util.Objects;
  *
  * @author lfasani
  */
-public record Task(String id, String descriptionId, String targetObjectId, TaskDetail detail, List<Task> subTasks) {
+public record Task(String id, String descriptionId, String targetObjectId, String targetObjectKind, String targetObjectLabel, TaskDetail detail, List<Task> subTasks) {
 
     public Task {
         Objects.requireNonNull(id);
         Objects.requireNonNull(targetObjectId);
+        Objects.requireNonNull(targetObjectKind);
+        Objects.requireNonNull(targetObjectLabel);
         Objects.requireNonNull(descriptionId);
         Objects.requireNonNull(detail);
         Objects.requireNonNull(subTasks);
@@ -40,6 +42,10 @@ public record Task(String id, String descriptionId, String targetObjectId, TaskD
         private String id;
 
         private String targetObjectId;
+
+        private String targetObjectKind;
+
+        private String targetObjectLabel;
 
         private String descriptionId;
 
@@ -64,12 +70,22 @@ public record Task(String id, String descriptionId, String targetObjectId, TaskD
             return this;
         }
 
+        public Builder targetObjectKind(String targetObjectKind) {
+            this.targetObjectKind = Objects.requireNonNull(targetObjectKind);
+            return this;
+        }
+
+        public Builder targetObjectLabel(String targetObjectLabel) {
+            this.targetObjectLabel = Objects.requireNonNull(targetObjectLabel);
+            return this;
+        }
+
         public Builder descriptionId(String descriptionId) {
             this.descriptionId = Objects.requireNonNull(descriptionId);
             return this;
         }
 
-        public Builder descriptionId(TaskDetail taskDetail) {
+        public Builder taskDetail(TaskDetail taskDetail) {
             this.taskDetail = Objects.requireNonNull(taskDetail);
             return this;
         }
@@ -80,7 +96,7 @@ public record Task(String id, String descriptionId, String targetObjectId, TaskD
         }
 
         public Task build() {
-            Task task = new Task(this.id, this.targetObjectId, this.descriptionId, this.taskDetail, this.subTasks);
+            Task task = new Task(this.id, this.targetObjectId, this.targetObjectKind, this.targetObjectLabel, this.descriptionId, this.taskDetail, this.subTasks);
             return task;
         }
     }

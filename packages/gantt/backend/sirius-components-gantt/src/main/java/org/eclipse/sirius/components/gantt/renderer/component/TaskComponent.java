@@ -66,20 +66,20 @@ public class TaskComponent implements IComponent {
         TaskDescription taskDescription = this.props.taskDescription();
         TaskDetail detail = taskDescription.taskDetailProvider().apply(childVariableManager);
         List<Element> childrenElements = this.getChildren(childVariableManager, taskDescription);
+        String targetObjectKind = taskDescription.targetObjectKindProvider().apply(childVariableManager);
+        String targetObjectLabel = taskDescription.targetObjectLabelProvider().apply(childVariableManager);
 
-        TaskElementProps taskElementProps = new TaskElementProps(UUID.randomUUID().toString(), taskDescription.id(), targetObjectId, detail, childrenElements);
+        TaskElementProps taskElementProps = new TaskElementProps(UUID.randomUUID().toString(), taskDescription.id(), targetObjectId, targetObjectKind, targetObjectLabel, detail, childrenElements);
         return new Element(TaskElementProps.TYPE, taskElementProps);
     }
 
     private List<Element> getChildren(VariableManager variableManager, TaskDescription taskDescription) {
         List<Element> reusedTaskDescription = taskDescription.reusedTaskDescriptionIds().stream()
-            .map(this.props.id2tasksDescription()::get)
-            .map(childTaskDescription -> {
-                TaskComponentProps taskComponentProps = new TaskComponentProps(variableManager, taskDescription, null, null, this.props.id2tasksDescription());
-
-                return new Element(TaskComponent.class, taskComponentProps);
-            })
-            .toList();
+                .map(this.props.id2tasksDescription()::get)
+                .map(childTaskDescription -> {
+                    TaskComponentProps taskComponentProps = new TaskComponentProps(variableManager, taskDescription, null, null, this.props.id2tasksDescription());
+                    return new Element(TaskComponent.class, taskComponentProps);
+                }).toList();
 
         return reusedTaskDescription;
 

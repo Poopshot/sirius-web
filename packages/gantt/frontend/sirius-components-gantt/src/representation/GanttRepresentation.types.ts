@@ -10,6 +10,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
+import { Task } from '@SemanticBoard/gantt-task-react';
 import { GQLMessage } from '@eclipse-sirius/sirius-components-core/src/graphql/GQLTypes.types';
 
 export interface GQLGanttEventSubscription {
@@ -82,10 +83,18 @@ export interface GQLTask {
   id: string;
   descriptionId: string;
   targetObjectId: string;
+  targetObjectKind: string;
+  targetObjectLabel: string;
   detail: GQLTaskDetail;
   style: GQLTaskStyle;
   subTasks: GQLTask[];
   dependencies: GQLTask[];
+}
+
+export interface SelectableTask extends Task {
+  targetObjectId: string;
+  targetObjectKind: string;
+  targetObjectLabel: string;
 }
 
 export interface GQLTaskDetail {

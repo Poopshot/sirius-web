@@ -49,6 +49,8 @@ export const ganttEventSubscription = gql`
   fragment taskFields on Task {
     id
     targetObjectId
+    targetObjectKind
+    targetObjectLabel
     detail {
       name
       description

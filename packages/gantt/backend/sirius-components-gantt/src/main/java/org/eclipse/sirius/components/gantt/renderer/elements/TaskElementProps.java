@@ -25,13 +25,15 @@ import org.eclipse.sirius.components.representations.IProps;
  * @author lfasani
  */
 
-public record TaskElementProps(String id, String descriptionId, String targetObjectId, TaskDetail detail, List<Element> children) implements IProps {
+public record TaskElementProps(String id, String descriptionId, String targetObjectId, String targetObjectKind, String targetObjectLabel, TaskDetail detail, List<Element> children) implements IProps {
 
     public static final String TYPE = "Task";
 
     public TaskElementProps {
         Objects.requireNonNull(id);
         Objects.requireNonNull(targetObjectId);
+        Objects.requireNonNull(targetObjectKind);
+        Objects.requireNonNull(targetObjectLabel);
         Objects.requireNonNull(descriptionId);
         Objects.requireNonNull(detail);
         Objects.requireNonNull(children);
