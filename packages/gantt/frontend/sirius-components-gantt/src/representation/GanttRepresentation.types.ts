@@ -100,20 +100,14 @@ export interface SelectableTask extends Task {
 export interface GQLTaskDetail {
   name: string;
   description: string;
-  type: GQLTaskType;
-  startDate: string;
-  endDate: string;
+  startDate: number;
+  endDate: number;
   progress: number;
 }
 export interface GQLTaskStyle {
   labelColor: string;
   backgroundColor: string;
   progressColor: string;
-}
-export enum GQLTaskType {
-  TASK = 'TASK',
-  TASK_GROUP = 'TASK_GROUP',
-  MILESTONE = 'MILESTONE',
 }
 
 export enum GQLDay {

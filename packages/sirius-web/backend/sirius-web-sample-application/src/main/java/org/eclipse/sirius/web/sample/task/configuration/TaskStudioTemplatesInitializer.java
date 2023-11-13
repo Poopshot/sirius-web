@@ -24,13 +24,8 @@ import java.util.function.Function;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
-import org.eclipse.sirius.components.collaborative.api.IRepresentationPersistenceService;
-import org.eclipse.sirius.components.collaborative.diagrams.api.IDiagramCreationService;
 import org.eclipse.sirius.components.core.RepresentationMetadata;
 import org.eclipse.sirius.components.core.api.IEditingContext;
-import org.eclipse.sirius.components.core.api.IRepresentationDescriptionSearchService;
-import org.eclipse.sirius.components.diagrams.Diagram;
-import org.eclipse.sirius.components.diagrams.description.DiagramDescription;
 import org.eclipse.sirius.components.emf.ResourceMetadataAdapter;
 import org.eclipse.sirius.components.emf.services.EditingContext;
 import org.eclipse.sirius.components.emf.services.JSONResourceFactory;
@@ -38,8 +33,6 @@ import org.eclipse.sirius.emfjson.resource.JsonResource;
 import org.eclipse.sirius.web.persistence.entities.DocumentEntity;
 import org.eclipse.sirius.web.persistence.repositories.IDocumentRepository;
 import org.eclipse.sirius.web.persistence.repositories.IProjectRepository;
-import org.eclipse.sirius.web.sample.configuration.StereotypeBuilder;
-import org.eclipse.sirius.web.sample.task.domain.TaskDomainProvider;
 import org.eclipse.sirius.web.services.api.id.IDParser;
 import org.eclipse.sirius.web.services.api.projects.IProjectTemplateInitializer;
 import org.slf4j.Logger;
@@ -47,23 +40,15 @@ import org.slf4j.LoggerFactory;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.io.ClassPathResource;
 
-import io.micrometer.core.instrument.MeterRegistry;
-
 /**
- * Provides a initializer for "Task Studio" (domain & view).
+ * Provides a initializer for Task example model.
  *
  * @author lfasani
  */
 @Configuration
 public class TaskStudioTemplatesInitializer implements IProjectTemplateInitializer {
 
-    static final String TASK_STUDIO_TEMPLATE_ID = "task-studio-template";
-
-    static final String TASK_DOMAIN_DOCUMENT_NAME = "Task Domain";
-
     static final String TASK_MODEL_DOCUMENT_NAME = "Task Model";
-
-    static final String GANTT_VIEW_DOCUMENT_NAME = "Gantt View";
 
     private final Logger logger = LoggerFactory.getLogger(TaskStudioTemplatesInitializer.class);
 
@@ -71,22 +56,9 @@ public class TaskStudioTemplatesInitializer implements IProjectTemplateInitializ
 
     private final IDocumentRepository documentRepository;
 
-    private final IRepresentationDescriptionSearchService representationDescriptionSearchService;
-
-    private final IDiagramCreationService diagramCreationService;
-
-    private final IRepresentationPersistenceService representationPersistenceService;
-
-    private final StereotypeBuilder stereotypeBuilder;
-
-    public TaskStudioTemplatesInitializer(IProjectRepository projectRepository, IDocumentRepository documentRepository, IRepresentationDescriptionSearchService representationDescriptionSearchService,
-            IDiagramCreationService diagramCreationService, IRepresentationPersistenceService representationPersistenceService, MeterRegistry meterRegistry) {
+    public TaskStudioTemplatesInitializer(IProjectRepository projectRepository, IDocumentRepository documentRepository) {
         this.projectRepository = Objects.requireNonNull(projectRepository);
         this.documentRepository = Objects.requireNonNull(documentRepository);
-        this.representationDescriptionSearchService = Objects.requireNonNull(representationDescriptionSearchService);
-        this.diagramCreationService = Objects.requireNonNull(diagramCreationService);
-        this.representationPersistenceService = Objects.requireNonNull(representationPersistenceService);
-        this.stereotypeBuilder = new StereotypeBuilder(TASK_STUDIO_TEMPLATE_ID, meterRegistry);
     }
 
     @Override
@@ -97,26 +69,7 @@ public class TaskStudioTemplatesInitializer implements IProjectTemplateInitializ
     @Override
     public Optional<RepresentationMetadata> handle(String templateId, IEditingContext editingContext) {
         Optional<RepresentationMetadata> representationMetadata = Optional.empty();
-        if (TASK_STUDIO_TEMPLATE_ID.equals(templateId)) {
-
-            Function<Resource, Optional<RepresentationMetadata>> createRepresentation = (Resource resource) -> {
-                Optional<RepresentationMetadata> result = Optional.empty();
-                var optionalDomainDiagram = this.findDiagramDescription(editingContext, "Domain");
-                if (optionalDomainDiagram.isPresent()) {
-                    DiagramDescription topographyDiagram = optionalDomainDiagram.get();
-                    Object semanticTarget = resource.getContents().get(0);
-
-                    Diagram diagram = this.diagramCreationService.create(topographyDiagram.getLabel(), semanticTarget, topographyDiagram, editingContext);
-                    this.representationPersistenceService.save(editingContext, diagram);
-
-                    result = Optional.of(new RepresentationMetadata(diagram.getId(), diagram.getKind(), diagram.getLabel(), diagram.getDescriptionId()));
-                }
-                return result;
-            };
-
-            representationMetadata = this.initializeTaskProject(editingContext, TASK_DOMAIN_DOCUMENT_NAME, this.stereotypeBuilder.getStereotypeBody(new TaskDomainProvider().getDomains()),
-                    createRepresentation);
-        } else if (TaskProjectTemplatesProvider.TASK_EXAMPLE_TEMPLATE_ID.equals(templateId)) {
+        if (TaskProjectTemplatesProvider.TASK_EXAMPLE_TEMPLATE_ID.equals(templateId)) {
             representationMetadata = this.initializeTaskProject(editingContext, TASK_MODEL_DOCUMENT_NAME, this.createTaskModel(), null);
         }
         return representationMetadata;
@@ -178,15 +131,4 @@ public class TaskStudioTemplatesInitializer implements IProjectTemplateInitializ
         }
         return result;
     }
-
-    private Optional<DiagramDescription> findDiagramDescription(IEditingContext editingContext, String label) {
-        // @formatter:off
-        return this.representationDescriptionSearchService.findAll(editingContext).values().stream()
-                .filter(DiagramDescription.class::isInstance)
-                .map(DiagramDescription.class::cast)
-                .filter(diagramDescrpition -> Objects.equals(label, diagramDescrpition.getLabel()))
-                .findFirst();
-        // @formatter:on
-    }
-
 }

@@ -1,20 +1,21 @@
 import { Task } from '@SemanticBoard/gantt-task-react';
 import { TaskType } from '@SemanticBoard/gantt-task-react/dist/types/public-types';
-import { GQLTask, GQLTaskType, SelectableTask } from '../representation/GanttRepresentation.types';
+import { GQLTask, SelectableTask } from '../representation/GanttRepresentation.types';
 export function getTaskFromGQLTask(gQLTasks: GQLTask[], parentId: string) {
   const tasks: Task[] = [];
   gQLTasks.forEach((gQLTask) => {
     let type: TaskType = 'task';
-    if (gQLTask.detail.type === GQLTaskType.TASK_GROUP) {
+    const isProject = gQLTask.subTasks && gQLTask.subTasks.length > 0;
+    if (isProject) {
       type = 'project';
-    } else if (gQLTask.detail.type === GQLTaskType.MILESTONE) {
+    } else if (gQLTask.detail.startDate === gQLTask.detail.endDate) {
       type = 'milestone';
     }
     const task: SelectableTask = {
       id: gQLTask.id,
       name: gQLTask.detail.name,
-      start: new Date(Date.parse(gQLTask.detail.startDate)),
-      end: new Date(Date.parse(gQLTask.detail.endDate)),
+      start: new Date(gQLTask.detail.startDate * 1000),
+      end: new Date(gQLTask.detail.endDate * 1000),
       progress: gQLTask.detail.progress,
       type,
       dependencies: gQLTask.dependencies?.map((dep) => dep.id),
@@ -26,7 +27,7 @@ export function getTaskFromGQLTask(gQLTasks: GQLTask[], parentId: string) {
     };
 
     tasks.push(task);
-    if (gQLTask.detail.type === GQLTaskType.TASK_GROUP) {
+    if (isProject) {
       const children: Task[] = getTaskFromGQLTask(gQLTask.subTasks, gQLTask.id);
       tasks.push(...children);
     }

@@ -14,34 +14,27 @@ package org.eclipse.sirius.web.sample.task.configuration.view;
 
 import java.util.Optional;
 
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.components.gantt.TaskDetail;
-import org.eclipse.sirius.components.gantt.TaskType;
-import org.eclipse.sirius.ecore.extender.business.internal.accessor.ecore.EcoreIntrinsicExtender;
-
+import org.eclipse.sirius.components.task.Task;
 
 /**
  * Java Service for the task related views.
  *
  * @author lfasani
  */
-@SuppressWarnings("checkstyle:MultipleStringLiterals")
 public class TaskJavaService {
-
-    private final EcoreIntrinsicExtender ecoreIntrinsicExtender = new EcoreIntrinsicExtender();
 
     public TaskJavaService() {
     }
 
-    public TaskDetail getTaskDetail(EObject task) {
+    public TaskDetail getTaskDetail(Task task) {
 
-        String name = Optional.ofNullable((String) this.ecoreIntrinsicExtender.eGet(task, "name")).orElse("");
-        String description = Optional.ofNullable((String) this.ecoreIntrinsicExtender.eGet(task, "description")).orElse("");
-        String startDate = Optional.ofNullable((String) this.ecoreIntrinsicExtender.eGet(task, "startDate")).orElse("");
-        String endDate = Optional.ofNullable((String) this.ecoreIntrinsicExtender.eGet(task, "endDate")).orElse("");
-        Integer progress = Optional.ofNullable((Integer) this.ecoreIntrinsicExtender.eGet(task, "progress")).orElse(0);
-        Integer taskType = Optional.ofNullable((Integer) this.ecoreIntrinsicExtender.eGet(task, "type")).orElse(0);
+        String name = Optional.ofNullable(task.getName()).orElse("");
+        String description = Optional.ofNullable(task.getDescription()).orElse("");
+        long startDate = task.getStartDate();
+        long endDate = task.getEndDate();
+        int progress = task.getProgress();
 
-        return new TaskDetail(name, description, TaskType.values()[taskType], startDate, endDate, progress);
+        return new TaskDetail(name, description, startDate, endDate, progress);
     }
 }

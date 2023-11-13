@@ -12,6 +12,7 @@
  *******************************************************************************/
 package org.eclipse.sirius.components.view.emf.task;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -22,7 +23,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.sirius.components.compatibility.emf.DomainClassPredicate;
 import org.eclipse.sirius.components.core.api.IObjectService;
 import org.eclipse.sirius.components.gantt.TaskDetail;
-import org.eclipse.sirius.components.gantt.TaskType;
 import org.eclipse.sirius.components.gantt.description.GanttDescription;
 import org.eclipse.sirius.components.gantt.description.TaskDescription;
 import org.eclipse.sirius.components.interpreter.AQLInterpreter;
@@ -101,7 +101,8 @@ public class ViewGanttDescriptionConverter implements IRepresentationDescription
         TaskDetail detail = interpreter.evaluateExpression(variableManager.getVariables(), viewTaskDescription.getTaskDetailExpression()).asObject()//
                 .filter(TaskDetail.class::isInstance)//
                 .map(TaskDetail.class::cast)//
-                .orElseGet(() -> new TaskDetail("name", "description", TaskType.TASK, "2023-09-15T06:30", "2023-09-15T06:40", 0));
+                .orElseGet(() -> new TaskDetail("name", "description", Instant.now().getEpochSecond(), Instant.now().getEpochSecond(), 0));
+
         return detail;
     }
 

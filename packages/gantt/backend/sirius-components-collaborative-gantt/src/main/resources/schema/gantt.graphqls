@@ -37,11 +37,9 @@ type Task {
 type TaskDetail {
   name: String!
   description: String!
-  type: TaskType!
-  startDate: String!
-  endDate: String!
+  startDate: Int!
+  endDate: Int!
   progress: Int!
-  assignee: String
 }
 
 type TaskStyle {

@@ -19,7 +19,7 @@ import java.util.Objects;
  *
  * @author lfasani
  */
-public record TaskDetail(String name, String description, TaskType type, String startDate, String endDate, Integer progress) {
+public record TaskDetail(String name, String description, long startDate, long endDate, int progress) {
 
     public TaskDetail {
         Objects.requireNonNull(name);
@@ -27,6 +27,5 @@ public record TaskDetail(String name, String description, TaskType type, String 
         Objects.requireNonNull(startDate);
         Objects.requireNonNull(endDate);
         Objects.requireNonNull(progress);
-        Objects.requireNonNull(type);
     }
 }

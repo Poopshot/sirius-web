@@ -54,7 +54,6 @@ export const ganttEventSubscription = gql`
     detail {
       name
       description
-      type
       startDate
       endDate
       progress
