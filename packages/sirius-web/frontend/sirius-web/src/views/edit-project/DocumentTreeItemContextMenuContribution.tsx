@@ -12,6 +12,7 @@
  *******************************************************************************/
 import { Selection, ServerContext, ServerContextValue } from '@eclipse-sirius/sirius-components-core';
 import { TreeItemContextMenuComponentProps } from '@eclipse-sirius/sirius-components-trees';
+import { Dialog } from '@material-ui/core';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuItem from '@material-ui/core/MenuItem';
@@ -20,7 +21,7 @@ import GetAppIcon from '@material-ui/icons/GetApp';
 import { Fragment, forwardRef, useContext, useState } from 'react';
 import { NewRootObjectModal } from '../../modals/new-root-object/NewRootObjectModal';
 
-type Modal = 'CreateNewRootObject';
+type Modal = 'CreateNewRootObject' | 'DisplayDeck';
 
 export const DocumentTreeItemContextMenuContribution = forwardRef(
   (
@@ -45,6 +46,12 @@ export const DocumentTreeItemContextMenuContribution = forwardRef(
           onObjectCreated={onObjectCreated}
           onClose={onClose}
         />
+      );
+    } else if (modal === 'DisplayDeck') {
+      modalElement = (
+        <Dialog open={true} onClose={onClose} aria-labelledby="dialog-title" maxWidth="xl" fullWidth>
+          <DeckRepresentation></DeckRepresentation>;
+        </Dialog>
       );
     }
 
