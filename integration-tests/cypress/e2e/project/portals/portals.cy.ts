@@ -19,6 +19,20 @@ import { Portal } from '../../../workbench/Portal';
 
 const projectName = 'Cypress - portal';
 
+function checkRepresentationsView(expectedItems: string[]): void {
+  cy.getByTestId('viewselector-Representations').click();
+  cy.getByTestId('view-Representations').then((res) => {
+    const view = cy.wrap(res);
+    view.should('contain.text', 'Portal content');
+    view.find('ul[role="tree"]').then((res) => {
+      const tree = cy.wrap(res);
+      expectedItems.forEach((itemText) => {
+        tree.should('contain.text', itemText);
+      });
+    });
+  });
+}
+
 describe('/projects/:projectId/edit - Portal', () => {
   context('Given a flow project with a robot document', () => {
     let projectId: string = '';
@@ -113,6 +127,8 @@ describe('/projects/:projectId/edit - Portal', () => {
               .should('be.enabled');
             frame.get('.react-resizable-handle').should('be.visible');
           });
+
+          checkRepresentationsView([secondPortal]);
         });
 
         it('Portal loops can not be created', () => {
@@ -178,6 +194,8 @@ describe('/projects/:projectId/edit - Portal', () => {
             toolbar.get('[aria-label="edit portal configuration').should('be.visible').should('be.enabled');
             toolbar.get('[aria-label="edit representations').should('be.visible').should('be.disabled');
           });
+
+          checkRepresentationsView([diagramTitle]);
         });
 
         it('A portal which already contains a representation opens in direct mode', () => {
@@ -224,6 +242,8 @@ describe('/projects/:projectId/edit - Portal', () => {
           explorer.getTreeItemByLabel('Portal').click();
 
           portal.getFrame('New ' + diagramTitle).should('be.visible');
+
+          checkRepresentationsView(['New ' + diagramTitle]);
         });
 
         it('Deleting a diagram embedded in a portal removes its frame', () => {

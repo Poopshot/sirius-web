@@ -20,6 +20,7 @@ import org.eclipse.sirius.components.collaborative.api.IRepresentationConfigurat
 import org.eclipse.sirius.components.collaborative.api.IRepresentationEventProcessor;
 import org.eclipse.sirius.components.collaborative.api.IRepresentationEventProcessorFactory;
 import org.eclipse.sirius.components.collaborative.api.IRepresentationRefreshPolicyRegistry;
+import org.eclipse.sirius.components.collaborative.api.IRepresentationSearchService;
 import org.eclipse.sirius.components.collaborative.api.ISubscriptionManagerFactory;
 import org.eclipse.sirius.components.collaborative.forms.api.FormCreationParameters;
 import org.eclipse.sirius.components.collaborative.forms.api.IFormEventHandler;
@@ -50,6 +51,8 @@ public class RepresentationsEventProcessorFactory implements IRepresentationEven
 
     private final List<IWidgetDescriptor> widgetDescriptors;
 
+    private final IRepresentationSearchService representationSearchService;
+
     private final List<IFormEventHandler> formEventHandlers;
 
     private final ISubscriptionManagerFactory subscriptionManagerFactory;
@@ -61,7 +64,7 @@ public class RepresentationsEventProcessorFactory implements IRepresentationEven
     private final IFormPostProcessor formPostProcessor;
 
     public RepresentationsEventProcessorFactory(IRepresentationsDescriptionProvider representationsDescriptionProvider, ISubscriptionManagerFactory subscriptionManagerFactory,
-            IRepresentationRefreshPolicyRegistry representationRefreshPolicyRegistry, List<IWidgetDescriptor> widgetDescriptors, FormEventProcessorFactoryConfiguration formConfiguration) {
+            IRepresentationRefreshPolicyRegistry representationRefreshPolicyRegistry, List<IWidgetDescriptor> widgetDescriptors, FormEventProcessorFactoryConfiguration formConfiguration, IRepresentationSearchService representationSearchService) {
         this.representationsDescriptionProvider = Objects.requireNonNull(representationsDescriptionProvider);
         this.objectService = Objects.requireNonNull(formConfiguration.getObjectService());
         this.widgetDescriptors = Objects.requireNonNull(widgetDescriptors);
@@ -69,6 +72,7 @@ public class RepresentationsEventProcessorFactory implements IRepresentationEven
         this.subscriptionManagerFactory = Objects.requireNonNull(subscriptionManagerFactory);
         this.widgetSubscriptionManagerFactory = Objects.requireNonNull(formConfiguration.getWidgetSubscriptionManagerFactory());
         this.representationRefreshPolicyRegistry = Objects.requireNonNull(representationRefreshPolicyRegistry);
+        this.representationSearchService = Objects.requireNonNull(representationSearchService);
         this.formPostProcessor = Objects.requireNonNull(formConfiguration.getFormPostProcessor());
     }
 
@@ -106,5 +110,4 @@ public class RepresentationsEventProcessorFactory implements IRepresentationEven
         }
         return Optional.empty();
     }
-
 }
