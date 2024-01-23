@@ -11,8 +11,12 @@
  *     Obeo - initial API and implementation
  *******************************************************************************/
 import { ServerContext, ServerContextValue, getCSSColor, useSelection } from '@eclipse-sirius/sirius-components-core';
-import { WidgetProps } from '@eclipse-sirius/sirius-components-formdescriptioneditors';
-import { getTextDecorationLineValue } from '@eclipse-sirius/sirius-components-forms';
+import {
+  GQLWidget,
+  PreviewWidgetComponent,
+  PreviewWidgetProps,
+  getTextDecorationLineValue,
+} from '@eclipse-sirius/sirius-components-forms';
 import { GQLReferenceWidget } from '@eclipse-sirius/sirius-components-widget-reference';
 import IconButton from '@material-ui/core/IconButton';
 import List from '@material-ui/core/List';
@@ -25,6 +29,8 @@ import DeleteIcon from '@material-ui/icons/Delete';
 import HelpOutlineOutlined from '@material-ui/icons/HelpOutlineOutlined';
 import { useContext, useEffect, useRef, useState } from 'react';
 import { GQLReferenceWidgetStyle } from './ReferenceWidgetFragment.types';
+
+const isReferenceWidget = (widget: GQLWidget): widget is GQLReferenceWidget => widget.__typename === 'ReferenceWidget';
 
 const useStyles = makeStyles<Theme, GQLReferenceWidgetStyle>((theme) => ({
   style: {
@@ -45,16 +51,19 @@ const useStyles = makeStyles<Theme, GQLReferenceWidgetStyle>((theme) => ({
   },
 }));
 
-type ReferenceWidgetProps = WidgetProps<GQLReferenceWidget>;
-
-export const ReferencePreview = ({ widget }: ReferenceWidgetProps) => {
+export const ReferencePreview: PreviewWidgetComponent = ({ widget }: PreviewWidgetProps) => {
+  let style: GQLReferenceWidgetStyle | null = null;
+  if (isReferenceWidget(widget)) {
+    const referenceWidget: GQLReferenceWidget = widget;
+    style = referenceWidget.style;
+  }
   const props: GQLReferenceWidgetStyle = {
-    color: widget.style?.color ?? null,
-    fontSize: widget.style?.fontSize ?? null,
-    italic: widget.style?.italic ?? null,
-    bold: widget.style?.bold ?? null,
-    underline: widget.style?.underline ?? null,
-    strikeThrough: widget.style?.strikeThrough ?? null,
+    color: style?.color ?? null,
+    fontSize: style?.fontSize ?? null,
+    italic: style?.italic ?? null,
+    bold: style?.bold ?? null,
+    underline: style?.underline ?? null,
+    strikeThrough: style?.strikeThrough ?? null,
   };
   const classes = useStyles(props);
   const { httpOrigin } = useContext<ServerContextValue>(ServerContext);
@@ -71,6 +80,10 @@ export const ReferencePreview = ({ widget }: ReferenceWidgetProps) => {
       setSelected(false);
     }
   }, [selection, widget]);
+
+  if (!isReferenceWidget(widget)) {
+    return null;
+  }
 
   return (
     <div>

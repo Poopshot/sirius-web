@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2022, 2023 Obeo.
+ * Copyright (c) 2022, 2024 Obeo.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -19,8 +19,10 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import { TreeItem as MuiTreeItem } from '@material-ui/lab';
 import TreeView from '@material-ui/lab/TreeView';
 import React from 'react';
+import { PropertySectionComponent, PropertySectionComponentProps } from '../form/Form.types';
+import { GQLTree } from '../form/FormEventFragments.types';
 import { PropertySectionLabel } from './PropertySectionLabel';
-import { TreeItemProps, TreePropertySectionProps } from './TreePropertySection.types';
+import { TreeItemProps } from './TreePropertySection.types';
 
 const useTreeItemWidgetStyles = makeStyles((theme) => ({
   label: {
@@ -62,7 +64,12 @@ const TreeItem = ({ node, nodes }: TreeItemProps) => {
   );
 };
 
-export const TreePropertySection = ({ editingContextId, formId, widget, subscribers }: TreePropertySectionProps) => {
+export const TreePropertySection: PropertySectionComponent<GQLTree> = ({
+  editingContextId,
+  formId,
+  widget,
+  subscribers,
+}: PropertySectionComponentProps<GQLTree>) => {
   let { nodes, expandedNodesIds } = widget;
 
   if (widget.nodes.length === 0) {

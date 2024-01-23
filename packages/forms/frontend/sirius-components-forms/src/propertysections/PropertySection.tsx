@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2022, 2023 Obeo.
+ * Copyright (c) 2022, 2024 Obeo.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -148,7 +148,14 @@ export const PropertySection = ({
     );
   } else if (isLink(widget)) {
     propertySection = (
-      <LinkPropertySection editingContextId={editingContextId} formId={formId} widget={widget} key={widget.id} />
+      <LinkPropertySection
+        editingContextId={editingContextId}
+        formId={formId}
+        widget={widget}
+        key={widget.id}
+        subscribers={subscribers}
+        readOnly={readOnly}
+      />
     );
   } else if (isButton(widget)) {
     propertySection = (
@@ -169,6 +176,7 @@ export const PropertySection = ({
         widget={widget}
         subscribers={subscribers}
         key={widget.id}
+        readOnly={readOnly}
       />
     );
   } else if (isChartWidget(widget)) {
@@ -179,6 +187,7 @@ export const PropertySection = ({
         widget={widget}
         subscribers={subscribers}
         key={widget.id}
+        readOnly={readOnly}
       />
     );
   } else if (isFlexboxContainer(widget)) {
@@ -200,11 +209,19 @@ export const PropertySection = ({
         widget={widget}
         key={widget.id}
         subscribers={subscribers}
+        readOnly={readOnly}
       />
     );
   } else if (isImage(widget)) {
     propertySection = (
-      <ImagePropertySection editingContextId={editingContextId} formId={formId} widget={widget} key={widget.id} />
+      <ImagePropertySection
+        editingContextId={editingContextId}
+        formId={formId}
+        widget={widget}
+        key={widget.id}
+        subscribers={subscribers}
+        readOnly={readOnly}
+      />
     );
   } else if (isRichText(widget)) {
     propertySection = (

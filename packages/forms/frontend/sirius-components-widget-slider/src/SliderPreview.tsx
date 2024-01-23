@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2023 Obeo.
+ * Copyright (c) 2023, 2024 Obeo.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -11,7 +11,7 @@
  *     Obeo - initial API and implementation
  *******************************************************************************/
 import { useSelection } from '@eclipse-sirius/sirius-components-core';
-import { WidgetProps } from '@eclipse-sirius/sirius-components-formdescriptioneditors';
+import { GQLWidget, PreviewWidgetComponent, PreviewWidgetProps } from '@eclipse-sirius/sirius-components-forms';
 import Slider from '@material-ui/core/Slider';
 import Typography from '@material-ui/core/Typography';
 import { Theme, makeStyles } from '@material-ui/core/styles';
@@ -19,9 +19,11 @@ import ExtensionIcon from '@material-ui/icons/Extension';
 import HelpOutlineOutlined from '@material-ui/icons/HelpOutlineOutlined';
 import { useEffect, useRef, useState } from 'react';
 import { GQLSlider } from './SliderFragment.types';
+import { SliderPreviewContentProps } from './SliderPreview.types';
 
-type SliderWidgetStyleProps = {};
-const useStyles = makeStyles<Theme, SliderWidgetStyleProps>((theme) => ({
+const isSlider = (widget: GQLWidget): widget is GQLSlider => widget.__typename === 'Slider';
+
+const useStyles = makeStyles<Theme>((theme) => ({
   style: {
     color: theme.palette.secondary.main,
   },
@@ -35,11 +37,15 @@ const useStyles = makeStyles<Theme, SliderWidgetStyleProps>((theme) => ({
   },
 }));
 
-type SliderWidgetProps = WidgetProps<GQLSlider>;
+export const SliderPreview: PreviewWidgetComponent = ({ widget }: PreviewWidgetProps) => {
+  if (isSlider(widget)) {
+    return <SliderPreviewContent widget={widget} />;
+  }
+  return null;
+};
 
-export const SliderPreview = ({ widget }: SliderWidgetProps) => {
-  const props: SliderWidgetStyleProps = {};
-  const classes = useStyles(props);
+export const SliderPreviewContent = ({ widget }: SliderPreviewContentProps) => {
+  const classes = useStyles();
 
   const [selected, setSelected] = useState<boolean>(false);
 

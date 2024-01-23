@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2023 Obeo.
+ * Copyright (c) 2023, 2024 Obeo.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -12,7 +12,11 @@
  *******************************************************************************/
 import { useMutation } from '@apollo/client';
 import { useMultiToast } from '@eclipse-sirius/sirius-components-core';
-import { PropertySectionComponentProps, PropertySectionLabel } from '@eclipse-sirius/sirius-components-forms';
+import {
+  PropertySectionComponent,
+  PropertySectionComponentProps,
+  PropertySectionLabel,
+} from '@eclipse-sirius/sirius-components-forms';
 import Slider from '@material-ui/core/Slider';
 import gql from 'graphql-tag';
 import { useEffect, useState } from 'react';
@@ -69,7 +73,7 @@ const isErrorPayload = (payload: GQLEditSliderPayload | GQLUpdateWidgetFocusPayl
 const isSuccessPayload = (payload: GQLEditSliderPayload | GQLUpdateWidgetFocusPayload): payload is GQLSuccessPayload =>
   payload.__typename === 'SuccessPayload';
 
-export const SliderPropertySection = ({
+export const SliderPropertySection: PropertySectionComponent<GQLSlider> = ({
   editingContextId,
   formId,
   widget,

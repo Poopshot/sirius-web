@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2019, 2023 Obeo.
+ * Copyright (c) 2019, 2024 Obeo.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -16,11 +16,12 @@ import TextField from '@material-ui/core/TextField';
 import { Theme, makeStyles } from '@material-ui/core/styles';
 import { useMachine } from '@xstate/react';
 import React, { FocusEvent, useEffect, useRef, useState } from 'react';
-import { GQLTextarea, GQLWidget } from '../form/FormEventFragments.types';
+import { GQLTextarea, GQLTextfield, GQLWidget } from '../form/FormEventFragments.types';
 import { GQLSuccessPayload } from './ListPropertySection.types';
 import { getTextDecorationLineValue } from './getTextDecorationLineValue';
 
 import { getCSSColor } from '@eclipse-sirius/sirius-components-core';
+import { PropertySectionComponent, PropertySectionComponentProps } from '../form/Form.types';
 import { PropertySectionLabel } from './PropertySectionLabel';
 import { ProposalsList } from './ProposalsList';
 import {
@@ -37,7 +38,6 @@ import {
   GQLUpdateWidgetFocusMutationVariables,
   GQLUpdateWidgetFocusPayload,
   TextFieldState,
-  TextfieldPropertySectionProps,
   TextfieldStyleProps,
 } from './TextfieldPropertySection.types';
 import {
@@ -134,13 +134,13 @@ const isSuccessPayload = (
  * Defines the content of a Textfield property section.
  * The content is submitted when the focus is lost and when pressing the "Enter" key.
  */
-export const TextfieldPropertySection = ({
+export const TextfieldPropertySection: PropertySectionComponent<GQLTextfield | GQLTextarea> = ({
   editingContextId,
   formId,
   widget,
   subscribers,
   readOnly,
-}: TextfieldPropertySectionProps) => {
+}: PropertySectionComponentProps<GQLTextfield | GQLTextarea>) => {
   const inputElt = useRef<HTMLInputElement>();
 
   const props: TextfieldStyleProps = {

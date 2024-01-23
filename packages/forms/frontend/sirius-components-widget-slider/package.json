@@ -1,5 +1,5 @@
 {
-  "name": "@eclipse-sirius/sirius-components-widget-reference",
+  "name": "@eclipse-sirius/sirius-components-widget-slider",
   "version": "2024.1.1",
   "author": "Eclipse Sirius",
   "license": "EPL-2.0",
@@ -10,16 +10,16 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com/"
   },
-  "main": "./dist/sirius-components-widget-reference.umd.js",
-  "module": "./dist/sirius-components-widget-reference.es.js",
+  "main": "./dist/sirius-components-widget-slider.umd.js",
+  "module": "./dist/sirius-components-widget-slider.es.js",
   "types": "./dist/index.d.ts",
   "files": [
     "dist"
   ],
   "exports": {
     ".": {
-      "require": "./dist/sirius-components-widget-reference.umd.js",
-      "import": "./dist/sirius-components-widget-reference.es.js"
+      "require": "./dist/sirius-components-widget-slider.umd.js",
+      "import": "./dist/sirius-components-widget-slider.es.js"
     }
   },
   "scripts": {
@@ -35,7 +35,6 @@
     "@apollo/client": "3.8.1",
     "@eclipse-sirius/sirius-components-core": "*",
     "@eclipse-sirius/sirius-components-forms": "*",
-    "@eclipse-sirius/sirius-components-trees": "*",
     "@lexical/react": "0.8.1",
     "@material-ui/core": "4.12.4",
     "@material-ui/icons": "4.11.3",
@@ -52,7 +51,6 @@
     "@apollo/client": "3.8.1",
     "@eclipse-sirius/sirius-components-core": "*",
     "@eclipse-sirius/sirius-components-forms": "*",
-    "@eclipse-sirius/sirius-components-trees": "*",
     "@eclipse-sirius/sirius-components-tsconfig": "*",
     "@lexical/react": "0.8.1",
     "@material-ui/core": "4.12.4",

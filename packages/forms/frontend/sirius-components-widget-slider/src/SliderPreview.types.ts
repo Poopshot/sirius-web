@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2021, 2024 Obeo.
+ * Copyright (c) 2024 Obeo.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -11,11 +11,8 @@
  *     Obeo - initial API and implementation
  *******************************************************************************/
 
-export interface LabelStyleProps {
-  color: string | null;
-  fontSize: number | null;
-  italic: boolean | null;
-  bold: boolean | null;
-  underline: boolean | null;
-  strikeThrough: boolean | null;
+import { GQLSlider } from './SliderFragment.types';
+
+export interface SliderPreviewContentProps {
+  widget: GQLSlider;
 }

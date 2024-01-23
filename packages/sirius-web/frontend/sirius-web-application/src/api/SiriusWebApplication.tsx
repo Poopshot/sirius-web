@@ -13,11 +13,13 @@
 import { ApolloProvider } from '@apollo/client';
 import { RepresentationPathContext, ServerContext } from '@eclipse-sirius/sirius-components-core';
 import { NodeTypeContext, NodeTypeContextValue } from '@eclipse-sirius/sirius-components-diagrams-reactflow';
+import { PropertySectionContext } from '@eclipse-sirius/sirius-components-forms';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Theme, ThemeProvider } from '@material-ui/core/styles';
 import React, { useMemo } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { createApolloGraphQLClient } from '../ApolloGraphQLClient';
+import { propertySectionsRegistry } from '../forms/defaultPropertySectionRegistry';
 import { RepresentationContextProvider } from '../representations/RepresentationContextProvider';
 import { Router } from '../router/Router';
 import { siriusWebTheme as defaultTheme } from '../theme/siriusWebTheme';
@@ -79,11 +81,13 @@ export const SiriusWebApplication = ({ httpOrigin, wsOrigin, theme, children }: 
               <ToastProvider>
                 <RepresentationContextProvider>
                   <NodeTypeContext.Provider value={nodeTypeRegistryValue}>
-                    <ViewsContext.Provider value={value}>
-                      <div style={style}>
-                        <Router />
-                      </div>
-                    </ViewsContext.Provider>
+                    <PropertySectionContext.Provider value={{ propertySectionsRegistry }}>
+                      <ViewsContext.Provider value={value}>
+                        <div style={style}>
+                          <Router />
+                        </div>
+                      </ViewsContext.Provider>
+                    </PropertySectionContext.Provider>
                   </NodeTypeContext.Provider>
                 </RepresentationContextProvider>
               </ToastProvider>

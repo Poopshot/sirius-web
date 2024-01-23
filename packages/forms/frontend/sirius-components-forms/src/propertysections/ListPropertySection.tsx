@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2019, 2023 Obeo.
+ * Copyright (c) 2019, 2024 Obeo.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -23,7 +23,8 @@ import Typography from '@material-ui/core/Typography';
 import { Theme, makeStyles, useTheme } from '@material-ui/core/styles';
 import DeleteIcon from '@material-ui/icons/Delete';
 import { MouseEvent, useEffect } from 'react';
-import { GQLListItem } from '../form/FormEventFragments.types';
+import { PropertySectionComponent, PropertySectionComponentProps } from '../form/Form.types';
+import { GQLList, GQLListItem } from '../form/FormEventFragments.types';
 import {
   GQLClickListItemMutationData,
   GQLClickListItemMutationVariables,
@@ -31,7 +32,6 @@ import {
   GQLDeleteListItemPayload,
   GQLErrorPayload,
   GQLSuccessPayload,
-  ListPropertySectionProps,
   ListStyleProps,
 } from './ListPropertySection.types';
 import { PropertySectionLabel } from './PropertySectionLabel';
@@ -110,13 +110,13 @@ const isErrorPayload = (payload: GQLDeleteListItemPayload): payload is GQLErrorP
 const isSuccessPayload = (payload: GQLDeleteListItemPayload): payload is GQLSuccessPayload =>
   payload.__typename === 'SuccessPayload';
 
-export const ListPropertySection = ({
+export const ListPropertySection: PropertySectionComponent<GQLList> = ({
   editingContextId,
   formId,
   widget,
   subscribers,
   readOnly,
-}: ListPropertySectionProps) => {
+}: PropertySectionComponentProps<GQLList>) => {
   const props: ListStyleProps = {
     color: widget.style?.color ?? null,
     fontSize: widget.style?.fontSize ?? null,

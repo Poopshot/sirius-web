@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2022, 2023 Obeo.
+ * Copyright (c) 2024 Obeo.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -10,11 +10,7 @@
  * Contributors:
  *     Obeo - initial API and implementation
  *******************************************************************************/
-import { GQLChartWidget, GQLSubscriber } from '../form/FormEventFragments.types';
-
-export interface ChartWidgetPropertySectionProps {
-  editingContextId: string;
-  formId: string;
-  widget: GQLChartWidget;
-  subscribers: GQLSubscriber[];
-}
+export * from './SliderFragment.types';
+export * from './SliderPreview';
+export * from './SliderPropertySection';
+export * from './SliderPropertySection.types';
