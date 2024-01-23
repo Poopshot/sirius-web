@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2023 Obeo.
+ * Copyright (c) 2023, 2024 Obeo.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -12,8 +12,8 @@
  *******************************************************************************/
 import { SiriusIcon } from '../core/SiriusIcon';
 import { Help } from '../navigationBar/Help';
+import { ViewsContextValue } from '../views/ViewsContext.types';
 import { ViewsProps } from './Views.types';
-import { ViewsContextValue } from './ViewsContext.types';
 
 const applicationIcon: JSX.Element = <SiriusIcon fontSize="large" />;
 const applicationBarMenu: JSX.Element = <Help />;

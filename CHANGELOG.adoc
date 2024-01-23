@@ -34,6 +34,7 @@ Its body operations are now bind on set/add instead of click.
 
 === Improvements
 
+- https://github.com/eclipse-sirius/sirius-web/issues/2985[#2985] Move some code in `sirius-web-application` to identify more clearly the API part of the npm package.
 
 
 == v2024.1.0

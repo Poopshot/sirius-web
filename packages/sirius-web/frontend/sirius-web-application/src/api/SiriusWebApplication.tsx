@@ -17,21 +17,21 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import { Theme, ThemeProvider } from '@material-ui/core/styles';
 import React, { useMemo } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import { ToastProvider } from '../../src/toast/ToastProvider';
 import { createApolloGraphQLClient } from '../ApolloGraphQLClient';
-import {
-  DiagramRepresentationConfiguration,
-  defaultNodeTypeRegistry,
-} from '../diagrams/DiagramRepresentationConfiguration';
-import { DiagramRepresentationConfigurationProps } from '../diagrams/DiagramRepresentationConfiguration.types';
 import { RepresentationContextProvider } from '../representations/RepresentationContextProvider';
 import { Router } from '../router/Router';
 import { siriusWebTheme as defaultTheme } from '../theme/siriusWebTheme';
-import { Views, defaultValue } from '../views/Views';
-import { ViewsProps } from '../views/Views.types';
+import { ToastProvider } from '../toast/ToastProvider';
 import { ViewsContext } from '../views/ViewsContext';
 import { ViewsContextValue } from '../views/ViewsContext.types';
 import { SiriusWebApplicationProps } from './SiriusWebApplication.types';
+import { Views, defaultValue } from './Views';
+import { ViewsProps } from './Views.types';
+import {
+  DiagramRepresentationConfiguration,
+  defaultNodeTypeRegistry,
+} from './diagrams/DiagramRepresentationConfiguration';
+import { DiagramRepresentationConfigurationProps } from './diagrams/DiagramRepresentationConfiguration.types';
 
 const style = {
   display: 'grid',

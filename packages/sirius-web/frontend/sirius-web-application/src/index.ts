@@ -1,5 +1,5 @@
 /*******************************************************************************
- * Copyright (c) 2023 Obeo.
+ * Copyright (c) 2023, 2024 Obeo.
  * This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v2.0
  * which accompanies this distribution, and is available at
@@ -11,7 +11,9 @@
  *     Obeo - initial API and implementation
  *******************************************************************************/
 
-export { SiriusWebApplication } from './application/SiriusWebApplication';
-export { DiagramRepresentationConfiguration } from './diagrams/DiagramRepresentationConfiguration';
-export type { NodeTypeRegistry } from './diagrams/DiagramRepresentationConfiguration.types';
-export { Views } from './views/Views';
+// Only APIs should be exported
+
+export { SiriusWebApplication } from './api/SiriusWebApplication';
+export { Views } from './api/Views';
+export { DiagramRepresentationConfiguration } from './api/diagrams/DiagramRepresentationConfiguration';
+export type { NodeTypeRegistry } from './api/diagrams/DiagramRepresentationConfiguration.types';
