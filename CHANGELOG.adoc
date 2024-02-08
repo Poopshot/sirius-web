@@ -62,6 +62,11 @@ The EMF validation support will now be provided by `sirius-web-services`.
 Having `Viewer` as a type did not bring any additional value and it created some overhead by having to create and keep updated an additional type without any benefit.
 - [sirius-web] The field `ChangeKind.PROJECT_RENAMING` has been deleted since it does not make any sense in Sirius Components.
 - https://github.com/eclipse-sirius/sirius-web/issues/2713[#2713] [diagram] Add the attribute `growableNodeIds` to graphql `ListLayoutStrategy`.
+- https://github.com/eclipse-sirius/sirius-web/issues/3088[#3088] [diagram] Some changes have been made in the View DSL for diagram:
+* attribute `labelExpression` has been renamed to `centerLabelExpression` for edges
+* attribute `labelExpression` has been removed from `NodeDescription` in favor of `InsideLabelDescription`
++
+For further information, please refer to ADR _130_add_support_for_outside_inside_node_labels.adoc_
 
 === Dependency update
 
@@ -117,6 +122,10 @@ image:doc/screenshots/showDeletionConfirmation.png[Deletion Confirmation Dialog,
 - https://github.com/eclipse-sirius/sirius-web/issues/3133[#3133] [deck] Add OKR and Kanban samples in the Task template and Deck view stereotype.
 - https://github.com/eclipse-sirius/sirius-web/issues/3145[#3145] [diagram] Add support for helper lines to facilitate the alignment of nodes with each other.
 - https://github.com/eclipse-sirius/sirius-web/issues/3084[#3084] [form] Add SplitButton Widget.
+- https://github.com/eclipse-sirius/sirius-web/issues/3088[#3088] [diagram] Add the support for inside/outside labels.
+In this first version, the only available positions _top_center_ for inside label en _bottom_center_ for outside label.
++
+image:doc/screenshots/inside_outside_labels.png[Isinde outside label example, 70%]
 
 === Improvements
 

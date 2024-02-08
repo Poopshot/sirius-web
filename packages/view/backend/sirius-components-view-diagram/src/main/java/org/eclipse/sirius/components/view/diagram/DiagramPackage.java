@@ -207,22 +207,13 @@ public interface DiagramPackage extends EPackage {
     int DIAGRAM_ELEMENT_DESCRIPTION__SYNCHRONIZATION_POLICY = 4;
 
     /**
-     * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @generated
-     * @ordered
-     */
-    int DIAGRAM_ELEMENT_DESCRIPTION__LABEL_EXPRESSION = 5;
-
-    /**
      * The number of structural features of the '<em>Element Description</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT = 6;
+    int DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT = 5;
 
     /**
      * The number of operations of the '<em>Element Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
@@ -285,15 +276,6 @@ public interface DiagramPackage extends EPackage {
      * @ordered
      */
     int NODE_DESCRIPTION__SYNCHRONIZATION_POLICY = DIAGRAM_ELEMENT_DESCRIPTION__SYNCHRONIZATION_POLICY;
-
-    /**
-     * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @generated
-     * @ordered
-     */
-    int NODE_DESCRIPTION__LABEL_EXPRESSION = DIAGRAM_ELEMENT_DESCRIPTION__LABEL_EXPRESSION;
 
     /**
      * The feature id for the '<em><b>Collapsible</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -411,13 +393,31 @@ public interface DiagramPackage extends EPackage {
     int NODE_DESCRIPTION__KEEP_ASPECT_RATIO = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 12;
 
     /**
+     * The feature id for the '<em><b>Inside Label</b></em>' containment reference. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NODE_DESCRIPTION__INSIDE_LABEL = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 13;
+
+    /**
+     * The feature id for the '<em><b>Outside Labels</b></em>' containment reference list. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NODE_DESCRIPTION__OUTSIDE_LABELS = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 14;
+
+    /**
      * The number of structural features of the '<em>Node Description</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int NODE_DESCRIPTION_FEATURE_COUNT = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 13;
+    int NODE_DESCRIPTION_FEATURE_COUNT = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 15;
 
     /**
      * The number of operations of the '<em>Node Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -481,15 +481,6 @@ public interface DiagramPackage extends EPackage {
     int EDGE_DESCRIPTION__SYNCHRONIZATION_POLICY = DIAGRAM_ELEMENT_DESCRIPTION__SYNCHRONIZATION_POLICY;
 
     /**
-     * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     *
-     * @generated
-     * @ordered
-     */
-    int EDGE_DESCRIPTION__LABEL_EXPRESSION = DIAGRAM_ELEMENT_DESCRIPTION__LABEL_EXPRESSION;
-
-    /**
      * The feature id for the '<em><b>Begin Label Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
@@ -499,13 +490,22 @@ public interface DiagramPackage extends EPackage {
     int EDGE_DESCRIPTION__BEGIN_LABEL_EXPRESSION = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT;
 
     /**
+     * The feature id for the '<em><b>Center Label Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int EDGE_DESCRIPTION__CENTER_LABEL_EXPRESSION = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 1;
+
+    /**
      * The feature id for the '<em><b>End Label Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int EDGE_DESCRIPTION__END_LABEL_EXPRESSION = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 1;
+    int EDGE_DESCRIPTION__END_LABEL_EXPRESSION = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 2;
 
     /**
      * The feature id for the '<em><b>Is Domain Based Edge</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -514,7 +514,7 @@ public interface DiagramPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EDGE_DESCRIPTION__IS_DOMAIN_BASED_EDGE = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 2;
+    int EDGE_DESCRIPTION__IS_DOMAIN_BASED_EDGE = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 3;
 
     /**
      * The feature id for the '<em><b>Palette</b></em>' containment reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -523,7 +523,7 @@ public interface DiagramPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EDGE_DESCRIPTION__PALETTE = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 3;
+    int EDGE_DESCRIPTION__PALETTE = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 4;
 
     /**
      * The feature id for the '<em><b>Source Node Descriptions</b></em>' reference list. <!-- begin-user-doc --> <!--
@@ -532,7 +532,7 @@ public interface DiagramPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EDGE_DESCRIPTION__SOURCE_NODE_DESCRIPTIONS = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 4;
+    int EDGE_DESCRIPTION__SOURCE_NODE_DESCRIPTIONS = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 5;
 
     /**
      * The feature id for the '<em><b>Target Node Descriptions</b></em>' reference list. <!-- begin-user-doc --> <!--
@@ -541,7 +541,7 @@ public interface DiagramPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EDGE_DESCRIPTION__TARGET_NODE_DESCRIPTIONS = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 5;
+    int EDGE_DESCRIPTION__TARGET_NODE_DESCRIPTIONS = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 6;
 
     /**
      * The feature id for the '<em><b>Source Nodes Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -550,7 +550,7 @@ public interface DiagramPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EDGE_DESCRIPTION__SOURCE_NODES_EXPRESSION = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 6;
+    int EDGE_DESCRIPTION__SOURCE_NODES_EXPRESSION = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 7;
 
     /**
      * The feature id for the '<em><b>Target Nodes Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -559,7 +559,7 @@ public interface DiagramPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EDGE_DESCRIPTION__TARGET_NODES_EXPRESSION = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 7;
+    int EDGE_DESCRIPTION__TARGET_NODES_EXPRESSION = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 8;
 
     /**
      * The feature id for the '<em><b>Style</b></em>' containment reference. <!-- begin-user-doc --> <!-- end-user-doc
@@ -568,7 +568,7 @@ public interface DiagramPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EDGE_DESCRIPTION__STYLE = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 8;
+    int EDGE_DESCRIPTION__STYLE = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 9;
 
     /**
      * The feature id for the '<em><b>Conditional Styles</b></em>' containment reference list. <!-- begin-user-doc -->
@@ -577,7 +577,7 @@ public interface DiagramPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EDGE_DESCRIPTION__CONDITIONAL_STYLES = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 9;
+    int EDGE_DESCRIPTION__CONDITIONAL_STYLES = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 10;
 
     /**
      * The number of structural features of the '<em>Edge Description</em>' class. <!-- begin-user-doc --> <!--
@@ -586,7 +586,7 @@ public interface DiagramPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int EDGE_DESCRIPTION_FEATURE_COUNT = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 10;
+    int EDGE_DESCRIPTION_FEATURE_COUNT = DIAGRAM_ELEMENT_DESCRIPTION_FEATURE_COUNT + 11;
 
     /**
      * The number of operations of the '<em>Edge Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -719,6 +719,168 @@ public interface DiagramPackage extends EPackage {
     int FREE_FORM_LAYOUT_STRATEGY_DESCRIPTION_OPERATION_COUNT = LAYOUT_STRATEGY_DESCRIPTION_OPERATION_COUNT;
 
     /**
+     * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.impl.LabelDescriptionImpl <em>Label
+     * Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.impl.LabelDescriptionImpl
+     * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getLabelDescription()
+     */
+    int LABEL_DESCRIPTION = 7;
+
+    /**
+     * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @generated
+     * @ordered
+     */
+    int LABEL_DESCRIPTION__LABEL_EXPRESSION = 0;
+
+    /**
+     * The number of structural features of the '<em>Label Description</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int LABEL_DESCRIPTION_FEATURE_COUNT = 1;
+
+    /**
+     * The number of operations of the '<em>Label Description</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int LABEL_DESCRIPTION_OPERATION_COUNT = 0;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.impl.InsideLabelDescriptionImpl
+     * <em>Inside Label Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.impl.InsideLabelDescriptionImpl
+     * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getInsideLabelDescription()
+     */
+    int INSIDE_LABEL_DESCRIPTION = 8;
+
+    /**
+     * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_DESCRIPTION__LABEL_EXPRESSION = LABEL_DESCRIPTION__LABEL_EXPRESSION;
+
+    /**
+     * The feature id for the '<em><b>Position</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_DESCRIPTION__POSITION = LABEL_DESCRIPTION_FEATURE_COUNT;
+
+    /**
+     * The feature id for the '<em><b>Style</b></em>' containment reference. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_DESCRIPTION__STYLE = LABEL_DESCRIPTION_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Conditional Styles</b></em>' containment reference list. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_DESCRIPTION__CONDITIONAL_STYLES = LABEL_DESCRIPTION_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Inside Label Description</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_DESCRIPTION_FEATURE_COUNT = LABEL_DESCRIPTION_FEATURE_COUNT + 3;
+
+    /**
+     * The number of operations of the '<em>Inside Label Description</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_DESCRIPTION_OPERATION_COUNT = LABEL_DESCRIPTION_OPERATION_COUNT;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.impl.OutsideLabelDescriptionImpl
+     * <em>Outside Label Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.impl.OutsideLabelDescriptionImpl
+     * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getOutsideLabelDescription()
+     */
+    int OUTSIDE_LABEL_DESCRIPTION = 9;
+
+    /**
+     * The feature id for the '<em><b>Label Expression</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_DESCRIPTION__LABEL_EXPRESSION = LABEL_DESCRIPTION__LABEL_EXPRESSION;
+
+    /**
+     * The feature id for the '<em><b>Position</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_DESCRIPTION__POSITION = LABEL_DESCRIPTION_FEATURE_COUNT;
+
+    /**
+     * The feature id for the '<em><b>Style</b></em>' containment reference. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_DESCRIPTION__STYLE = LABEL_DESCRIPTION_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Conditional Styles</b></em>' containment reference list. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_DESCRIPTION__CONDITIONAL_STYLES = LABEL_DESCRIPTION_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Outside Label Description</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_DESCRIPTION_FEATURE_COUNT = LABEL_DESCRIPTION_FEATURE_COUNT + 3;
+
+    /**
+     * The number of operations of the '<em>Outside Label Description</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_DESCRIPTION_OPERATION_COUNT = LABEL_DESCRIPTION_OPERATION_COUNT;
+
+    /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.impl.StyleImpl <em>Style</em>}'
      * class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -726,7 +888,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.StyleImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getStyle()
      */
-    int STYLE = 7;
+    int STYLE = 10;
 
     /**
      * The feature id for the '<em><b>Color</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -760,7 +922,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.BorderStyle
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getBorderStyle()
      */
-    int BORDER_STYLE = 8;
+    int BORDER_STYLE = 11;
 
     /**
      * The feature id for the '<em><b>Border Color</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -813,6 +975,298 @@ public interface DiagramPackage extends EPackage {
     int BORDER_STYLE_OPERATION_COUNT = 0;
 
     /**
+     * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.NodeLabelStyle <em>Node Label
+     * Style</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.NodeLabelStyle
+     * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getNodeLabelStyle()
+     */
+    int NODE_LABEL_STYLE = 14;
+
+    /**
+     * The feature id for the '<em><b>Font Size</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NODE_LABEL_STYLE__FONT_SIZE = ViewPackage.LABEL_STYLE__FONT_SIZE;
+
+    /**
+     * The feature id for the '<em><b>Italic</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NODE_LABEL_STYLE__ITALIC = ViewPackage.LABEL_STYLE__ITALIC;
+
+    /**
+     * The feature id for the '<em><b>Bold</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NODE_LABEL_STYLE__BOLD = ViewPackage.LABEL_STYLE__BOLD;
+
+    /**
+     * The feature id for the '<em><b>Underline</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NODE_LABEL_STYLE__UNDERLINE = ViewPackage.LABEL_STYLE__UNDERLINE;
+
+    /**
+     * The feature id for the '<em><b>Strike Through</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NODE_LABEL_STYLE__STRIKE_THROUGH = ViewPackage.LABEL_STYLE__STRIKE_THROUGH;
+
+    /**
+     * The feature id for the '<em><b>Label Color</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NODE_LABEL_STYLE__LABEL_COLOR = ViewPackage.LABEL_STYLE_FEATURE_COUNT;
+
+    /**
+     * The feature id for the '<em><b>Show Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NODE_LABEL_STYLE__SHOW_ICON = ViewPackage.LABEL_STYLE_FEATURE_COUNT + 1;
+
+    /**
+     * The feature id for the '<em><b>Label Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NODE_LABEL_STYLE__LABEL_ICON = ViewPackage.LABEL_STYLE_FEATURE_COUNT + 2;
+
+    /**
+     * The number of structural features of the '<em>Node Label Style</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NODE_LABEL_STYLE_FEATURE_COUNT = ViewPackage.LABEL_STYLE_FEATURE_COUNT + 3;
+
+    /**
+     * The number of operations of the '<em>Node Label Style</em>' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int NODE_LABEL_STYLE_OPERATION_COUNT = ViewPackage.LABEL_STYLE_OPERATION_COUNT;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.impl.InsideLabelStyleImpl
+     * <em>Inside Label Style</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.impl.InsideLabelStyleImpl
+     * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getInsideLabelStyle()
+     */
+    int INSIDE_LABEL_STYLE = 12;
+
+    /**
+     * The feature id for the '<em><b>Font Size</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_STYLE__FONT_SIZE = NODE_LABEL_STYLE__FONT_SIZE;
+
+    /**
+     * The feature id for the '<em><b>Italic</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_STYLE__ITALIC = NODE_LABEL_STYLE__ITALIC;
+
+    /**
+     * The feature id for the '<em><b>Bold</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_STYLE__BOLD = NODE_LABEL_STYLE__BOLD;
+
+    /**
+     * The feature id for the '<em><b>Underline</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_STYLE__UNDERLINE = NODE_LABEL_STYLE__UNDERLINE;
+
+    /**
+     * The feature id for the '<em><b>Strike Through</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_STYLE__STRIKE_THROUGH = NODE_LABEL_STYLE__STRIKE_THROUGH;
+
+    /**
+     * The feature id for the '<em><b>Label Color</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_STYLE__LABEL_COLOR = NODE_LABEL_STYLE__LABEL_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Show Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_STYLE__SHOW_ICON = NODE_LABEL_STYLE__SHOW_ICON;
+
+    /**
+     * The feature id for the '<em><b>Label Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_STYLE__LABEL_ICON = NODE_LABEL_STYLE__LABEL_ICON;
+
+    /**
+     * The feature id for the '<em><b>With Header</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_STYLE__WITH_HEADER = NODE_LABEL_STYLE_FEATURE_COUNT;
+
+    /**
+     * The feature id for the '<em><b>Display Header Separator</b></em>' attribute. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_STYLE__DISPLAY_HEADER_SEPARATOR = NODE_LABEL_STYLE_FEATURE_COUNT + 1;
+
+    /**
+     * The number of structural features of the '<em>Inside Label Style</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_STYLE_FEATURE_COUNT = NODE_LABEL_STYLE_FEATURE_COUNT + 2;
+
+    /**
+     * The number of operations of the '<em>Inside Label Style</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @generated
+     * @ordered
+     */
+    int INSIDE_LABEL_STYLE_OPERATION_COUNT = NODE_LABEL_STYLE_OPERATION_COUNT;
+
+    /**
+     * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.impl.OutsideLabelStyleImpl
+     * <em>Outside Label Style</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.impl.OutsideLabelStyleImpl
+     * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getOutsideLabelStyle()
+     */
+    int OUTSIDE_LABEL_STYLE = 13;
+
+    /**
+     * The feature id for the '<em><b>Font Size</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_STYLE__FONT_SIZE = NODE_LABEL_STYLE__FONT_SIZE;
+
+    /**
+     * The feature id for the '<em><b>Italic</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_STYLE__ITALIC = NODE_LABEL_STYLE__ITALIC;
+
+    /**
+     * The feature id for the '<em><b>Bold</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_STYLE__BOLD = NODE_LABEL_STYLE__BOLD;
+
+    /**
+     * The feature id for the '<em><b>Underline</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_STYLE__UNDERLINE = NODE_LABEL_STYLE__UNDERLINE;
+
+    /**
+     * The feature id for the '<em><b>Strike Through</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_STYLE__STRIKE_THROUGH = NODE_LABEL_STYLE__STRIKE_THROUGH;
+
+    /**
+     * The feature id for the '<em><b>Label Color</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_STYLE__LABEL_COLOR = NODE_LABEL_STYLE__LABEL_COLOR;
+
+    /**
+     * The feature id for the '<em><b>Show Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_STYLE__SHOW_ICON = NODE_LABEL_STYLE__SHOW_ICON;
+
+    /**
+     * The feature id for the '<em><b>Label Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_STYLE__LABEL_ICON = NODE_LABEL_STYLE__LABEL_ICON;
+
+    /**
+     * The number of structural features of the '<em>Outside Label Style</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_STYLE_FEATURE_COUNT = NODE_LABEL_STYLE_FEATURE_COUNT;
+
+    /**
+     * The number of operations of the '<em>Outside Label Style</em>' class. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @generated
+     * @ordered
+     */
+    int OUTSIDE_LABEL_STYLE_OPERATION_COUNT = NODE_LABEL_STYLE_OPERATION_COUNT;
+
+    /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.NodeStyleDescription <em>Node Style
      * Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -820,7 +1274,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.NodeStyleDescription
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getNodeStyleDescription()
      */
-    int NODE_STYLE_DESCRIPTION = 9;
+    int NODE_STYLE_DESCRIPTION = 15;
 
     /**
      * The feature id for the '<em><b>Color</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -851,152 +1305,12 @@ public interface DiagramPackage extends EPackage {
      */
     int ICON_LABEL_NODE_STYLE_DESCRIPTION__COLOR = NODE_STYLE_DESCRIPTION__COLOR;
     /**
-     * The feature id for the '<em><b>Font Size</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int NODE_STYLE_DESCRIPTION__FONT_SIZE = STYLE_FEATURE_COUNT;
-    /**
-     * The feature id for the '<em><b>Font Size</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RECTANGULAR_NODE_STYLE_DESCRIPTION__FONT_SIZE = NODE_STYLE_DESCRIPTION__FONT_SIZE;
-    /**
-     * The feature id for the '<em><b>Font Size</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int IMAGE_NODE_STYLE_DESCRIPTION__FONT_SIZE = NODE_STYLE_DESCRIPTION__FONT_SIZE;
-    /**
-     * The feature id for the '<em><b>Font Size</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ICON_LABEL_NODE_STYLE_DESCRIPTION__FONT_SIZE = NODE_STYLE_DESCRIPTION__FONT_SIZE;
-    /**
-     * The feature id for the '<em><b>Italic</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int NODE_STYLE_DESCRIPTION__ITALIC = STYLE_FEATURE_COUNT + 1;
-    /**
-     * The feature id for the '<em><b>Italic</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RECTANGULAR_NODE_STYLE_DESCRIPTION__ITALIC = NODE_STYLE_DESCRIPTION__ITALIC;
-    /**
-     * The feature id for the '<em><b>Italic</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int IMAGE_NODE_STYLE_DESCRIPTION__ITALIC = NODE_STYLE_DESCRIPTION__ITALIC;
-    /**
-     * The feature id for the '<em><b>Italic</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ICON_LABEL_NODE_STYLE_DESCRIPTION__ITALIC = NODE_STYLE_DESCRIPTION__ITALIC;
-    /**
-     * The feature id for the '<em><b>Bold</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int NODE_STYLE_DESCRIPTION__BOLD = STYLE_FEATURE_COUNT + 2;
-    /**
-     * The feature id for the '<em><b>Bold</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RECTANGULAR_NODE_STYLE_DESCRIPTION__BOLD = NODE_STYLE_DESCRIPTION__BOLD;
-    /**
-     * The feature id for the '<em><b>Bold</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int IMAGE_NODE_STYLE_DESCRIPTION__BOLD = NODE_STYLE_DESCRIPTION__BOLD;
-    /**
-     * The feature id for the '<em><b>Bold</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ICON_LABEL_NODE_STYLE_DESCRIPTION__BOLD = NODE_STYLE_DESCRIPTION__BOLD;
-    /**
-     * The feature id for the '<em><b>Underline</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int NODE_STYLE_DESCRIPTION__UNDERLINE = STYLE_FEATURE_COUNT + 3;
-    /**
-     * The feature id for the '<em><b>Underline</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RECTANGULAR_NODE_STYLE_DESCRIPTION__UNDERLINE = NODE_STYLE_DESCRIPTION__UNDERLINE;
-    /**
-     * The feature id for the '<em><b>Underline</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int IMAGE_NODE_STYLE_DESCRIPTION__UNDERLINE = NODE_STYLE_DESCRIPTION__UNDERLINE;
-    /**
-     * The feature id for the '<em><b>Underline</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ICON_LABEL_NODE_STYLE_DESCRIPTION__UNDERLINE = NODE_STYLE_DESCRIPTION__UNDERLINE;
-    /**
-     * The feature id for the '<em><b>Strike Through</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int NODE_STYLE_DESCRIPTION__STRIKE_THROUGH = STYLE_FEATURE_COUNT + 4;
-    /**
-     * The feature id for the '<em><b>Strike Through</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RECTANGULAR_NODE_STYLE_DESCRIPTION__STRIKE_THROUGH = NODE_STYLE_DESCRIPTION__STRIKE_THROUGH;
-    /**
-     * The feature id for the '<em><b>Strike Through</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int IMAGE_NODE_STYLE_DESCRIPTION__STRIKE_THROUGH = NODE_STYLE_DESCRIPTION__STRIKE_THROUGH;
-    /**
-     * The feature id for the '<em><b>Strike Through</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ICON_LABEL_NODE_STYLE_DESCRIPTION__STRIKE_THROUGH = NODE_STYLE_DESCRIPTION__STRIKE_THROUGH;
-    /**
      * The feature id for the '<em><b>Border Color</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int NODE_STYLE_DESCRIPTION__BORDER_COLOR = STYLE_FEATURE_COUNT + 5;
+    int NODE_STYLE_DESCRIPTION__BORDER_COLOR = STYLE_FEATURE_COUNT;
     /**
      * The feature id for the '<em><b>Border Color</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -1024,7 +1338,7 @@ public interface DiagramPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NODE_STYLE_DESCRIPTION__BORDER_RADIUS = STYLE_FEATURE_COUNT + 6;
+    int NODE_STYLE_DESCRIPTION__BORDER_RADIUS = STYLE_FEATURE_COUNT + 1;
     /**
      * The feature id for the '<em><b>Border Radius</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -1052,7 +1366,7 @@ public interface DiagramPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NODE_STYLE_DESCRIPTION__BORDER_SIZE = STYLE_FEATURE_COUNT + 7;
+    int NODE_STYLE_DESCRIPTION__BORDER_SIZE = STYLE_FEATURE_COUNT + 2;
     /**
      * The feature id for the '<em><b>Border Size</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -1081,7 +1395,7 @@ public interface DiagramPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int NODE_STYLE_DESCRIPTION__BORDER_LINE_STYLE = STYLE_FEATURE_COUNT + 8;
+    int NODE_STYLE_DESCRIPTION__BORDER_LINE_STYLE = STYLE_FEATURE_COUNT + 3;
     /**
      * The feature id for the '<em><b>Border Line Style</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
@@ -1107,112 +1421,13 @@ public interface DiagramPackage extends EPackage {
      */
     int ICON_LABEL_NODE_STYLE_DESCRIPTION__BORDER_LINE_STYLE = NODE_STYLE_DESCRIPTION__BORDER_LINE_STYLE;
     /**
-     * The feature id for the '<em><b>Label Color</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int NODE_STYLE_DESCRIPTION__LABEL_COLOR = STYLE_FEATURE_COUNT + 9;
-    /**
-     * The feature id for the '<em><b>Label Color</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RECTANGULAR_NODE_STYLE_DESCRIPTION__LABEL_COLOR = NODE_STYLE_DESCRIPTION__LABEL_COLOR;
-    /**
-     * The feature id for the '<em><b>Label Color</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int IMAGE_NODE_STYLE_DESCRIPTION__LABEL_COLOR = NODE_STYLE_DESCRIPTION__LABEL_COLOR;
-    /**
-     * The feature id for the '<em><b>Label Color</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ICON_LABEL_NODE_STYLE_DESCRIPTION__LABEL_COLOR = NODE_STYLE_DESCRIPTION__LABEL_COLOR;
-    /**
-     * The feature id for the '<em><b>Show Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int NODE_STYLE_DESCRIPTION__SHOW_ICON = STYLE_FEATURE_COUNT + 10;
-    /**
-     * The feature id for the '<em><b>Show Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RECTANGULAR_NODE_STYLE_DESCRIPTION__SHOW_ICON = NODE_STYLE_DESCRIPTION__SHOW_ICON;
-    /**
-     * The feature id for the '<em><b>Show Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int IMAGE_NODE_STYLE_DESCRIPTION__SHOW_ICON = NODE_STYLE_DESCRIPTION__SHOW_ICON;
-    /**
-     * The feature id for the '<em><b>Show Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ICON_LABEL_NODE_STYLE_DESCRIPTION__SHOW_ICON = NODE_STYLE_DESCRIPTION__SHOW_ICON;
-    /**
-     * The feature id for the '<em><b>Label Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int NODE_STYLE_DESCRIPTION__LABEL_ICON = STYLE_FEATURE_COUNT + 11;
-    /**
-     * The feature id for the '<em><b>Label Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RECTANGULAR_NODE_STYLE_DESCRIPTION__LABEL_ICON = NODE_STYLE_DESCRIPTION__LABEL_ICON;
-    /**
-     * The feature id for the '<em><b>Label Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int IMAGE_NODE_STYLE_DESCRIPTION__LABEL_ICON = NODE_STYLE_DESCRIPTION__LABEL_ICON;
-    /**
-     * The feature id for the '<em><b>Label Icon</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int ICON_LABEL_NODE_STYLE_DESCRIPTION__LABEL_ICON = NODE_STYLE_DESCRIPTION__LABEL_ICON;
-    /**
      * The number of structural features of the '<em>Node Style Description</em>' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
      *
      * @generated
      * @ordered
      */
-    int NODE_STYLE_DESCRIPTION_FEATURE_COUNT = STYLE_FEATURE_COUNT + 12;
-    /**
-     * The feature id for the '<em><b>With Header</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RECTANGULAR_NODE_STYLE_DESCRIPTION__WITH_HEADER = NODE_STYLE_DESCRIPTION_FEATURE_COUNT;
-    /**
-     * The feature id for the '<em><b>Display Header Separator</b></em>' attribute. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     *
-     * @generated
-     * @ordered
-     */
-    int RECTANGULAR_NODE_STYLE_DESCRIPTION__DISPLAY_HEADER_SEPARATOR = NODE_STYLE_DESCRIPTION_FEATURE_COUNT + 1;
+    int NODE_STYLE_DESCRIPTION_FEATURE_COUNT = STYLE_FEATURE_COUNT + 4;
     /**
      * The number of structural features of the '<em>Rectangular Node Style Description</em>' class. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
@@ -1220,7 +1435,7 @@ public interface DiagramPackage extends EPackage {
      * @generated
      * @ordered
      */
-    int RECTANGULAR_NODE_STYLE_DESCRIPTION_FEATURE_COUNT = NODE_STYLE_DESCRIPTION_FEATURE_COUNT + 2;
+    int RECTANGULAR_NODE_STYLE_DESCRIPTION_FEATURE_COUNT = NODE_STYLE_DESCRIPTION_FEATURE_COUNT;
     /**
      * The feature id for the '<em><b>Shape</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -1292,7 +1507,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.ConditionalNodeStyleImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getConditionalNodeStyle()
      */
-    int CONDITIONAL_NODE_STYLE = 10;
+    int CONDITIONAL_NODE_STYLE = 16;
     /**
      * The feature id for the '<em><b>Condition</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -1326,6 +1541,88 @@ public interface DiagramPackage extends EPackage {
     int CONDITIONAL_NODE_STYLE_OPERATION_COUNT = ViewPackage.CONDITIONAL_OPERATION_COUNT;
     /**
      * The meta object id for the
+     * '{@link org.eclipse.sirius.components.view.diagram.impl.ConditionalInsideLabelStyleImpl <em>Conditional Inside
+     * Label Style</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.impl.ConditionalInsideLabelStyleImpl
+     * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getConditionalInsideLabelStyle()
+     */
+    int CONDITIONAL_INSIDE_LABEL_STYLE = 17;
+    /**
+     * The feature id for the '<em><b>Condition</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int CONDITIONAL_INSIDE_LABEL_STYLE__CONDITION = ViewPackage.CONDITIONAL__CONDITION;
+    /**
+     * The feature id for the '<em><b>Style</b></em>' containment reference. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @generated
+     * @ordered
+     */
+    int CONDITIONAL_INSIDE_LABEL_STYLE__STYLE = ViewPackage.CONDITIONAL_FEATURE_COUNT;
+    /**
+     * The number of structural features of the '<em>Conditional Inside Label Style</em>' class. <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int CONDITIONAL_INSIDE_LABEL_STYLE_FEATURE_COUNT = ViewPackage.CONDITIONAL_FEATURE_COUNT + 1;
+    /**
+     * The number of operations of the '<em>Conditional Inside Label Style</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int CONDITIONAL_INSIDE_LABEL_STYLE_OPERATION_COUNT = ViewPackage.CONDITIONAL_OPERATION_COUNT;
+    /**
+     * The meta object id for the
+     * '{@link org.eclipse.sirius.components.view.diagram.impl.ConditionalOutsideLabelStyleImpl <em>Conditional Outside
+     * Label Style</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.impl.ConditionalOutsideLabelStyleImpl
+     * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getConditionalOutsideLabelStyle()
+     */
+    int CONDITIONAL_OUTSIDE_LABEL_STYLE = 18;
+    /**
+     * The feature id for the '<em><b>Condition</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int CONDITIONAL_OUTSIDE_LABEL_STYLE__CONDITION = ViewPackage.CONDITIONAL__CONDITION;
+    /**
+     * The feature id for the '<em><b>Style</b></em>' containment reference. <!-- begin-user-doc --> <!-- end-user-doc
+     * -->
+     *
+     * @generated
+     * @ordered
+     */
+    int CONDITIONAL_OUTSIDE_LABEL_STYLE__STYLE = ViewPackage.CONDITIONAL_FEATURE_COUNT;
+    /**
+     * The number of structural features of the '<em>Conditional Outside Label Style</em>' class. <!-- begin-user-doc
+     * --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int CONDITIONAL_OUTSIDE_LABEL_STYLE_FEATURE_COUNT = ViewPackage.CONDITIONAL_FEATURE_COUNT + 1;
+    /**
+     * The number of operations of the '<em>Conditional Outside Label Style</em>' class. <!-- begin-user-doc --> <!--
+     * end-user-doc -->
+     *
+     * @generated
+     * @ordered
+     */
+    int CONDITIONAL_OUTSIDE_LABEL_STYLE_OPERATION_COUNT = ViewPackage.CONDITIONAL_OPERATION_COUNT;
+    /**
+     * The meta object id for the
      * '{@link org.eclipse.sirius.components.view.diagram.impl.RectangularNodeStyleDescriptionImpl <em>Rectangular Node
      * Style Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -1333,7 +1630,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.RectangularNodeStyleDescriptionImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getRectangularNodeStyleDescription()
      */
-    int RECTANGULAR_NODE_STYLE_DESCRIPTION = 11;
+    int RECTANGULAR_NODE_STYLE_DESCRIPTION = 19;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.impl.ImageNodeStyleDescriptionImpl
@@ -1343,7 +1640,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.ImageNodeStyleDescriptionImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getImageNodeStyleDescription()
      */
-    int IMAGE_NODE_STYLE_DESCRIPTION = 12;
+    int IMAGE_NODE_STYLE_DESCRIPTION = 20;
 
     /**
      * The meta object id for the
@@ -1354,7 +1651,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.IconLabelNodeStyleDescriptionImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getIconLabelNodeStyleDescription()
      */
-    int ICON_LABEL_NODE_STYLE_DESCRIPTION = 13;
+    int ICON_LABEL_NODE_STYLE_DESCRIPTION = 21;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.impl.EdgeStyleImpl <em>Edge
@@ -1364,7 +1661,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.EdgeStyleImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getEdgeStyle()
      */
-    int EDGE_STYLE = 14;
+    int EDGE_STYLE = 22;
 
     /**
      * The feature id for the '<em><b>Color</b></em>' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1489,7 +1786,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.ConditionalEdgeStyleImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getConditionalEdgeStyle()
      */
-    int CONDITIONAL_EDGE_STYLE = 15;
+    int CONDITIONAL_EDGE_STYLE = 23;
 
     /**
      * The feature id for the '<em><b>Condition</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1623,7 +1920,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPaletteImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getDiagramPalette()
      */
-    int DIAGRAM_PALETTE = 16;
+    int DIAGRAM_PALETTE = 24;
 
     /**
      * The feature id for the '<em><b>Drop Tool</b></em>' containment reference. <!-- begin-user-doc --> <!--
@@ -1685,7 +1982,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.NodePaletteImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getNodePalette()
      */
-    int NODE_PALETTE = 17;
+    int NODE_PALETTE = 25;
 
     /**
      * The feature id for the '<em><b>Delete Tool</b></em>' containment reference. <!-- begin-user-doc --> <!--
@@ -1766,7 +2063,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.EdgePaletteImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getEdgePalette()
      */
-    int EDGE_PALETTE = 18;
+    int EDGE_PALETTE = 26;
 
     /**
      * The feature id for the '<em><b>Delete Tool</b></em>' containment reference. <!-- begin-user-doc --> <!--
@@ -1856,7 +2153,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.ToolImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getTool()
      */
-    int TOOL = 19;
+    int TOOL = 27;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1908,7 +2205,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.DeleteToolImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getDeleteTool()
      */
-    int DELETE_TOOL = 20;
+    int DELETE_TOOL = 28;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -1961,7 +2258,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.DropToolImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getDropTool()
      */
-    int DROP_TOOL = 21;
+    int DROP_TOOL = 29;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2014,7 +2311,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.EdgeToolImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getEdgeTool()
      */
-    int EDGE_TOOL = 22;
+    int EDGE_TOOL = 30;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2085,7 +2382,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.EdgeReconnectionToolImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getEdgeReconnectionTool()
      */
-    int EDGE_RECONNECTION_TOOL = 23;
+    int EDGE_RECONNECTION_TOOL = 31;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2212,7 +2509,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.LabelEditToolImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getLabelEditTool()
      */
-    int LABEL_EDIT_TOOL = 24;
+    int LABEL_EDIT_TOOL = 32;
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -2267,7 +2564,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.NodeToolImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getNodeTool()
      */
-    int NODE_TOOL = 25;
+    int NODE_TOOL = 33;
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -2331,7 +2628,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.SourceEdgeEndReconnectionToolImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getSourceEdgeEndReconnectionTool()
      */
-    int SOURCE_EDGE_END_RECONNECTION_TOOL = 26;
+    int SOURCE_EDGE_END_RECONNECTION_TOOL = 34;
 
     /**
      * The meta object id for the
@@ -2342,7 +2639,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.TargetEdgeEndReconnectionToolImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getTargetEdgeEndReconnectionTool()
      */
-    int TARGET_EDGE_END_RECONNECTION_TOOL = 27;
+    int TARGET_EDGE_END_RECONNECTION_TOOL = 35;
 
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.impl.CreateViewImpl <em>Create
@@ -2352,7 +2649,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.CreateViewImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getCreateView()
      */
-    int CREATE_VIEW = 28;
+    int CREATE_VIEW = 36;
 
     /**
      * The feature id for the '<em><b>Children</b></em>' containment reference list. <!-- begin-user-doc --> <!--
@@ -2432,7 +2729,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.DeleteViewImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getDeleteView()
      */
-    int DELETE_VIEW = 29;
+    int DELETE_VIEW = 37;
 
     /**
      * The feature id for the '<em><b>Children</b></em>' containment reference list. <!-- begin-user-doc --> <!--
@@ -2476,7 +2773,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.SelectionDescriptionImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getSelectionDescription()
      */
-    int SELECTION_DESCRIPTION = 30;
+    int SELECTION_DESCRIPTION = 38;
 
     /**
      * The feature id for the '<em><b>Selection Candidates Expression</b></em>' attribute. <!-- begin-user-doc --> <!--
@@ -2522,7 +2819,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.ToolSectionImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getToolSection()
      */
-    int TOOL_SECTION = 31;
+    int TOOL_SECTION = 39;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2557,7 +2854,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramToolSectionImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getDiagramToolSection()
      */
-    int DIAGRAM_TOOL_SECTION = 32;
+    int DIAGRAM_TOOL_SECTION = 40;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2601,7 +2898,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.NodeToolSectionImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getNodeToolSection()
      */
-    int NODE_TOOL_SECTION = 33;
+    int NODE_TOOL_SECTION = 41;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2654,7 +2951,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.EdgeToolSectionImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getEdgeToolSection()
      */
-    int EDGE_TOOL_SECTION = 34;
+    int EDGE_TOOL_SECTION = 42;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2698,7 +2995,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.impl.DropNodeToolImpl
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getDropNodeTool()
      */
-    int DROP_NODE_TOOL = 35;
+    int DROP_NODE_TOOL = 43;
 
     /**
      * The feature id for the '<em><b>Name</b></em>' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2757,7 +3054,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.ArrowStyle
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getArrowStyle()
      */
-    int ARROW_STYLE = 36;
+    int ARROW_STYLE = 44;
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.LayoutDirection <em>Layout
      * Direction</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2766,7 +3063,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.LayoutDirection
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getLayoutDirection()
      */
-    int LAYOUT_DIRECTION = 37;
+    int LAYOUT_DIRECTION = 45;
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.LineStyle <em>Line Style</em>}'
      * enum. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2775,7 +3072,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.LineStyle
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getLineStyle()
      */
-    int LINE_STYLE = 38;
+    int LINE_STYLE = 46;
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.NodeContainmentKind <em>Node
      * Containment Kind</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2784,7 +3081,7 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.NodeContainmentKind
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getNodeContainmentKind()
      */
-    int NODE_CONTAINMENT_KIND = 39;
+    int NODE_CONTAINMENT_KIND = 47;
     /**
      * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.SynchronizationPolicy
      * <em>Synchronization Policy</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -2793,7 +3090,25 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.SynchronizationPolicy
      * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getSynchronizationPolicy()
      */
-    int SYNCHRONIZATION_POLICY = 40;
+    int SYNCHRONIZATION_POLICY = 48;
+    /**
+     * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.InsideLabelPosition <em>Inside
+     * Label Position</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.InsideLabelPosition
+     * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getInsideLabelPosition()
+     */
+    int INSIDE_LABEL_POSITION = 49;
+    /**
+     * The meta object id for the '{@link org.eclipse.sirius.components.view.diagram.OutsideLabelPosition <em>Outside
+     * Label Position</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.OutsideLabelPosition
+     * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getOutsideLabelPosition()
+     */
+    int OUTSIDE_LABEL_POSITION = 50;
     /**
      * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -2928,18 +3243,6 @@ public interface DiagramPackage extends EPackage {
      * @see #getDiagramElementDescription()
      */
     EAttribute getDiagramElementDescription_SynchronizationPolicy();
-
-    /**
-     * Returns the meta object for the attribute
-     * '{@link org.eclipse.sirius.components.view.diagram.DiagramElementDescription#getLabelExpression <em>Label
-     * Expression</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>Label Expression</em>'.
-     * @generated
-     * @see org.eclipse.sirius.components.view.diagram.DiagramElementDescription#getLabelExpression()
-     * @see #getDiagramElementDescription()
-     */
-    EAttribute getDiagramElementDescription_LabelExpression();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.NodeDescription <em>Node
@@ -3108,6 +3411,30 @@ public interface DiagramPackage extends EPackage {
     EAttribute getNodeDescription_KeepAspectRatio();
 
     /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.diagram.NodeDescription#getInsideLabel <em>Inside Label</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Inside Label</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.NodeDescription#getInsideLabel()
+     * @see #getNodeDescription()
+     */
+    EReference getNodeDescription_InsideLabel();
+
+    /**
+     * Returns the meta object for the containment reference list
+     * '{@link org.eclipse.sirius.components.view.diagram.NodeDescription#getOutsideLabels <em>Outside Labels</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference list '<em>Outside Labels</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.NodeDescription#getOutsideLabels()
+     * @see #getNodeDescription()
+     */
+    EReference getNodeDescription_OutsideLabels();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.EdgeDescription <em>Edge
      * Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -3128,6 +3455,18 @@ public interface DiagramPackage extends EPackage {
      * @see #getEdgeDescription()
      */
     EAttribute getEdgeDescription_BeginLabelExpression();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.diagram.EdgeDescription#getCenterLabelExpression <em>Center Label
+     * Expression</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Center Label Expression</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.EdgeDescription#getCenterLabelExpression()
+     * @see #getEdgeDescription()
+     */
+    EAttribute getEdgeDescription_CenterLabelExpression();
 
     /**
      * Returns the meta object for the attribute
@@ -3318,6 +3657,120 @@ public interface DiagramPackage extends EPackage {
     EClass getFreeFormLayoutStrategyDescription();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.LabelDescription <em>Label
+     * Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Label Description</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.LabelDescription
+     */
+    EClass getLabelDescription();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.diagram.LabelDescription#getLabelExpression <em>Label
+     * Expression</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Label Expression</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.LabelDescription#getLabelExpression()
+     * @see #getLabelDescription()
+     */
+    EAttribute getLabelDescription_LabelExpression();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.InsideLabelDescription
+     * <em>Inside Label Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Inside Label Description</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.InsideLabelDescription
+     */
+    EClass getInsideLabelDescription();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.diagram.InsideLabelDescription#getPosition <em>Position</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Position</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.InsideLabelDescription#getPosition()
+     * @see #getInsideLabelDescription()
+     */
+    EAttribute getInsideLabelDescription_Position();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.diagram.InsideLabelDescription#getStyle <em>Style</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Style</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.InsideLabelDescription#getStyle()
+     * @see #getInsideLabelDescription()
+     */
+    EReference getInsideLabelDescription_Style();
+
+    /**
+     * Returns the meta object for the containment reference list
+     * '{@link org.eclipse.sirius.components.view.diagram.InsideLabelDescription#getConditionalStyles <em>Conditional
+     * Styles</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference list '<em>Conditional Styles</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.InsideLabelDescription#getConditionalStyles()
+     * @see #getInsideLabelDescription()
+     */
+    EReference getInsideLabelDescription_ConditionalStyles();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.OutsideLabelDescription
+     * <em>Outside Label Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Outside Label Description</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.OutsideLabelDescription
+     */
+    EClass getOutsideLabelDescription();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.diagram.OutsideLabelDescription#getPosition <em>Position</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Position</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.OutsideLabelDescription#getPosition()
+     * @see #getOutsideLabelDescription()
+     */
+    EAttribute getOutsideLabelDescription_Position();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.diagram.OutsideLabelDescription#getStyle <em>Style</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Style</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.OutsideLabelDescription#getStyle()
+     * @see #getOutsideLabelDescription()
+     */
+    EReference getOutsideLabelDescription_Style();
+
+    /**
+     * Returns the meta object for the containment reference list
+     * '{@link org.eclipse.sirius.components.view.diagram.OutsideLabelDescription#getConditionalStyles <em>Conditional
+     * Styles</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference list '<em>Conditional Styles</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.OutsideLabelDescription#getConditionalStyles()
+     * @see #getOutsideLabelDescription()
+     */
+    EReference getOutsideLabelDescription_ConditionalStyles();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.Style <em>Style</em>}'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      *
@@ -3397,6 +3850,96 @@ public interface DiagramPackage extends EPackage {
     EAttribute getBorderStyle_BorderLineStyle();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.InsideLabelStyle <em>Inside
+     * Label Style</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Inside Label Style</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.InsideLabelStyle
+     */
+    EClass getInsideLabelStyle();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.diagram.InsideLabelStyle#isWithHeader <em>With Header</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>With Header</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.InsideLabelStyle#isWithHeader()
+     * @see #getInsideLabelStyle()
+     */
+    EAttribute getInsideLabelStyle_WithHeader();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.diagram.InsideLabelStyle#isDisplayHeaderSeparator <em>Display Header
+     * Separator</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Display Header Separator</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.InsideLabelStyle#isDisplayHeaderSeparator()
+     * @see #getInsideLabelStyle()
+     */
+    EAttribute getInsideLabelStyle_DisplayHeaderSeparator();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.OutsideLabelStyle
+     * <em>Outside Label Style</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Outside Label Style</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.OutsideLabelStyle
+     */
+    EClass getOutsideLabelStyle();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.NodeLabelStyle <em>Node
+     * Label Style</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Node Label Style</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.NodeLabelStyle
+     */
+    EClass getNodeLabelStyle();
+
+    /**
+     * Returns the meta object for the reference
+     * '{@link org.eclipse.sirius.components.view.diagram.NodeLabelStyle#getLabelColor <em>Label Color</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the reference '<em>Label Color</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.NodeLabelStyle#getLabelColor()
+     * @see #getNodeLabelStyle()
+     */
+    EReference getNodeLabelStyle_LabelColor();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.diagram.NodeLabelStyle#isShowIcon <em>Show Icon</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Show Icon</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.NodeLabelStyle#isShowIcon()
+     * @see #getNodeLabelStyle()
+     */
+    EAttribute getNodeLabelStyle_ShowIcon();
+
+    /**
+     * Returns the meta object for the attribute
+     * '{@link org.eclipse.sirius.components.view.diagram.NodeLabelStyle#getLabelIcon <em>Label Icon</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the attribute '<em>Label Icon</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.NodeLabelStyle#getLabelIcon()
+     * @see #getNodeLabelStyle()
+     */
+    EAttribute getNodeLabelStyle_LabelIcon();
+
+    /**
      * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.NodeStyleDescription
      * <em>Node Style Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
@@ -3405,42 +3948,6 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.NodeStyleDescription
      */
     EClass getNodeStyleDescription();
-
-    /**
-     * Returns the meta object for the reference
-     * '{@link org.eclipse.sirius.components.view.diagram.NodeStyleDescription#getLabelColor <em>Label Color</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the reference '<em>Label Color</em>'.
-     * @generated
-     * @see org.eclipse.sirius.components.view.diagram.NodeStyleDescription#getLabelColor()
-     * @see #getNodeStyleDescription()
-     */
-    EReference getNodeStyleDescription_LabelColor();
-
-    /**
-     * Returns the meta object for the attribute
-     * '{@link org.eclipse.sirius.components.view.diagram.NodeStyleDescription#isShowIcon <em>Show Icon</em>}'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>Show Icon</em>'.
-     * @generated
-     * @see org.eclipse.sirius.components.view.diagram.NodeStyleDescription#isShowIcon()
-     * @see #getNodeStyleDescription()
-     */
-    EAttribute getNodeStyleDescription_ShowIcon();
-
-    /**
-     * Returns the meta object for the attribute
-     * '{@link org.eclipse.sirius.components.view.diagram.NodeStyleDescription#getLabelIcon <em>Label Icon</em>}'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>Label Icon</em>'.
-     * @generated
-     * @see org.eclipse.sirius.components.view.diagram.NodeStyleDescription#getLabelIcon()
-     * @see #getNodeStyleDescription()
-     */
-    EAttribute getNodeStyleDescription_LabelIcon();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.ConditionalNodeStyle
@@ -3465,6 +3972,50 @@ public interface DiagramPackage extends EPackage {
     EReference getConditionalNodeStyle_Style();
 
     /**
+     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.ConditionalInsideLabelStyle
+     * <em>Conditional Inside Label Style</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Conditional Inside Label Style</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.ConditionalInsideLabelStyle
+     */
+    EClass getConditionalInsideLabelStyle();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.diagram.ConditionalInsideLabelStyle#getStyle <em>Style</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Style</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.ConditionalInsideLabelStyle#getStyle()
+     * @see #getConditionalInsideLabelStyle()
+     */
+    EReference getConditionalInsideLabelStyle_Style();
+
+    /**
+     * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.ConditionalOutsideLabelStyle
+     * <em>Conditional Outside Label Style</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for class '<em>Conditional Outside Label Style</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.ConditionalOutsideLabelStyle
+     */
+    EClass getConditionalOutsideLabelStyle();
+
+    /**
+     * Returns the meta object for the containment reference
+     * '{@link org.eclipse.sirius.components.view.diagram.ConditionalOutsideLabelStyle#getStyle <em>Style</em>}'. <!--
+     * begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for the containment reference '<em>Style</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.ConditionalOutsideLabelStyle#getStyle()
+     * @see #getConditionalOutsideLabelStyle()
+     */
+    EReference getConditionalOutsideLabelStyle_Style();
+
+    /**
      * Returns the meta object for class
      * '{@link org.eclipse.sirius.components.view.diagram.RectangularNodeStyleDescription <em>Rectangular Node Style
      * Description</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -3474,30 +4025,6 @@ public interface DiagramPackage extends EPackage {
      * @see org.eclipse.sirius.components.view.diagram.RectangularNodeStyleDescription
      */
     EClass getRectangularNodeStyleDescription();
-
-    /**
-     * Returns the meta object for the attribute
-     * '{@link org.eclipse.sirius.components.view.diagram.RectangularNodeStyleDescription#isWithHeader <em>With
-     * Header</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>With Header</em>'.
-     * @generated
-     * @see org.eclipse.sirius.components.view.diagram.RectangularNodeStyleDescription#isWithHeader()
-     * @see #getRectangularNodeStyleDescription()
-     */
-    EAttribute getRectangularNodeStyleDescription_WithHeader();
-
-    /**
-     * Returns the meta object for the attribute
-     * '{@link org.eclipse.sirius.components.view.diagram.RectangularNodeStyleDescription#isDisplayHeaderSeparator
-     * <em>Display Header Separator</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
-     *
-     * @return the meta object for the attribute '<em>Display Header Separator</em>'.
-     * @generated
-     * @see org.eclipse.sirius.components.view.diagram.RectangularNodeStyleDescription#isDisplayHeaderSeparator()
-     * @see #getRectangularNodeStyleDescription()
-     */
-    EAttribute getRectangularNodeStyleDescription_DisplayHeaderSeparator();
 
     /**
      * Returns the meta object for class '{@link org.eclipse.sirius.components.view.diagram.ImageNodeStyleDescription
@@ -4354,6 +4881,26 @@ public interface DiagramPackage extends EPackage {
     EEnum getSynchronizationPolicy();
 
     /**
+     * Returns the meta object for enum '{@link org.eclipse.sirius.components.view.diagram.InsideLabelPosition
+     * <em>Inside Label Position</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for enum '<em>Inside Label Position</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.InsideLabelPosition
+     */
+    EEnum getInsideLabelPosition();
+
+    /**
+     * Returns the meta object for enum '{@link org.eclipse.sirius.components.view.diagram.OutsideLabelPosition
+     * <em>Outside Label Position</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     *
+     * @return the meta object for enum '<em>Outside Label Position</em>'.
+     * @generated
+     * @see org.eclipse.sirius.components.view.diagram.OutsideLabelPosition
+     */
+    EEnum getOutsideLabelPosition();
+
+    /**
      * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!-- end-user-doc -->
      *
      * @return the factory that creates the instances of the model.
@@ -4471,14 +5018,6 @@ public interface DiagramPackage extends EPackage {
         EAttribute DIAGRAM_ELEMENT_DESCRIPTION__SYNCHRONIZATION_POLICY = eINSTANCE.getDiagramElementDescription_SynchronizationPolicy();
 
         /**
-         * The meta object literal for the '<em><b>Label Expression</b></em>' attribute feature. <!-- begin-user-doc -->
-         * <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute DIAGRAM_ELEMENT_DESCRIPTION__LABEL_EXPRESSION = eINSTANCE.getDiagramElementDescription_LabelExpression();
-
-        /**
          * The meta object literal for the '{@link org.eclipse.sirius.components.view.diagram.impl.NodeDescriptionImpl
          * <em>Node Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
@@ -4593,6 +5132,22 @@ public interface DiagramPackage extends EPackage {
         EAttribute NODE_DESCRIPTION__KEEP_ASPECT_RATIO = eINSTANCE.getNodeDescription_KeepAspectRatio();
 
         /**
+         * The meta object literal for the '<em><b>Inside Label</b></em>' containment reference feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference NODE_DESCRIPTION__INSIDE_LABEL = eINSTANCE.getNodeDescription_InsideLabel();
+
+        /**
+         * The meta object literal for the '<em><b>Outside Labels</b></em>' containment reference list feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference NODE_DESCRIPTION__OUTSIDE_LABELS = eINSTANCE.getNodeDescription_OutsideLabels();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.sirius.components.view.diagram.impl.EdgeDescriptionImpl
          * <em>Edge Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
@@ -4609,6 +5164,14 @@ public interface DiagramPackage extends EPackage {
          * @generated
          */
         EAttribute EDGE_DESCRIPTION__BEGIN_LABEL_EXPRESSION = eINSTANCE.getEdgeDescription_BeginLabelExpression();
+
+        /**
+         * The meta object literal for the '<em><b>Center Label Expression</b></em>' attribute feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute EDGE_DESCRIPTION__CENTER_LABEL_EXPRESSION = eINSTANCE.getEdgeDescription_CenterLabelExpression();
 
         /**
          * The meta object literal for the '<em><b>End Label Expression</b></em>' attribute feature. <!-- begin-user-doc
@@ -4747,6 +5310,94 @@ public interface DiagramPackage extends EPackage {
         EClass FREE_FORM_LAYOUT_STRATEGY_DESCRIPTION = eINSTANCE.getFreeFormLayoutStrategyDescription();
 
         /**
+         * The meta object literal for the '{@link org.eclipse.sirius.components.view.diagram.impl.LabelDescriptionImpl
+         * <em>Label Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         * @see org.eclipse.sirius.components.view.diagram.impl.LabelDescriptionImpl
+         * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getLabelDescription()
+         */
+        EClass LABEL_DESCRIPTION = eINSTANCE.getLabelDescription();
+
+        /**
+         * The meta object literal for the '<em><b>Label Expression</b></em>' attribute feature. <!-- begin-user-doc -->
+         * <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute LABEL_DESCRIPTION__LABEL_EXPRESSION = eINSTANCE.getLabelDescription_LabelExpression();
+
+        /**
+         * The meta object literal for the
+         * '{@link org.eclipse.sirius.components.view.diagram.impl.InsideLabelDescriptionImpl <em>Inside Label
+         * Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         * @see org.eclipse.sirius.components.view.diagram.impl.InsideLabelDescriptionImpl
+         * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getInsideLabelDescription()
+         */
+        EClass INSIDE_LABEL_DESCRIPTION = eINSTANCE.getInsideLabelDescription();
+
+        /**
+         * The meta object literal for the '<em><b>Position</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute INSIDE_LABEL_DESCRIPTION__POSITION = eINSTANCE.getInsideLabelDescription_Position();
+
+        /**
+         * The meta object literal for the '<em><b>Style</b></em>' containment reference feature. <!-- begin-user-doc
+         * --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference INSIDE_LABEL_DESCRIPTION__STYLE = eINSTANCE.getInsideLabelDescription_Style();
+
+        /**
+         * The meta object literal for the '<em><b>Conditional Styles</b></em>' containment reference list feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference INSIDE_LABEL_DESCRIPTION__CONDITIONAL_STYLES = eINSTANCE.getInsideLabelDescription_ConditionalStyles();
+
+        /**
+         * The meta object literal for the
+         * '{@link org.eclipse.sirius.components.view.diagram.impl.OutsideLabelDescriptionImpl <em>Outside Label
+         * Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         * @see org.eclipse.sirius.components.view.diagram.impl.OutsideLabelDescriptionImpl
+         * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getOutsideLabelDescription()
+         */
+        EClass OUTSIDE_LABEL_DESCRIPTION = eINSTANCE.getOutsideLabelDescription();
+
+        /**
+         * The meta object literal for the '<em><b>Position</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute OUTSIDE_LABEL_DESCRIPTION__POSITION = eINSTANCE.getOutsideLabelDescription_Position();
+
+        /**
+         * The meta object literal for the '<em><b>Style</b></em>' containment reference feature. <!-- begin-user-doc
+         * --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference OUTSIDE_LABEL_DESCRIPTION__STYLE = eINSTANCE.getOutsideLabelDescription_Style();
+
+        /**
+         * The meta object literal for the '<em><b>Conditional Styles</b></em>' containment reference list feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference OUTSIDE_LABEL_DESCRIPTION__CONDITIONAL_STYLES = eINSTANCE.getOutsideLabelDescription_ConditionalStyles();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.sirius.components.view.diagram.impl.StyleImpl
          * <em>Style</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
@@ -4807,6 +5458,76 @@ public interface DiagramPackage extends EPackage {
         EAttribute BORDER_STYLE__BORDER_LINE_STYLE = eINSTANCE.getBorderStyle_BorderLineStyle();
 
         /**
+         * The meta object literal for the '{@link org.eclipse.sirius.components.view.diagram.impl.InsideLabelStyleImpl
+         * <em>Inside Label Style</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         * @see org.eclipse.sirius.components.view.diagram.impl.InsideLabelStyleImpl
+         * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getInsideLabelStyle()
+         */
+        EClass INSIDE_LABEL_STYLE = eINSTANCE.getInsideLabelStyle();
+
+        /**
+         * The meta object literal for the '<em><b>With Header</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute INSIDE_LABEL_STYLE__WITH_HEADER = eINSTANCE.getInsideLabelStyle_WithHeader();
+
+        /**
+         * The meta object literal for the '<em><b>Display Header Separator</b></em>' attribute feature. <!--
+         * begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute INSIDE_LABEL_STYLE__DISPLAY_HEADER_SEPARATOR = eINSTANCE.getInsideLabelStyle_DisplayHeaderSeparator();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.sirius.components.view.diagram.impl.OutsideLabelStyleImpl
+         * <em>Outside Label Style</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         * @see org.eclipse.sirius.components.view.diagram.impl.OutsideLabelStyleImpl
+         * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getOutsideLabelStyle()
+         */
+        EClass OUTSIDE_LABEL_STYLE = eINSTANCE.getOutsideLabelStyle();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.sirius.components.view.diagram.NodeLabelStyle <em>Node
+         * Label Style</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         * @see org.eclipse.sirius.components.view.diagram.NodeLabelStyle
+         * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getNodeLabelStyle()
+         */
+        EClass NODE_LABEL_STYLE = eINSTANCE.getNodeLabelStyle();
+
+        /**
+         * The meta object literal for the '<em><b>Label Color</b></em>' reference feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @generated
+         */
+        EReference NODE_LABEL_STYLE__LABEL_COLOR = eINSTANCE.getNodeLabelStyle_LabelColor();
+
+        /**
+         * The meta object literal for the '<em><b>Show Icon</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute NODE_LABEL_STYLE__SHOW_ICON = eINSTANCE.getNodeLabelStyle_ShowIcon();
+
+        /**
+         * The meta object literal for the '<em><b>Label Icon</b></em>' attribute feature. <!-- begin-user-doc --> <!--
+         * end-user-doc -->
+         *
+         * @generated
+         */
+        EAttribute NODE_LABEL_STYLE__LABEL_ICON = eINSTANCE.getNodeLabelStyle_LabelIcon();
+
+        /**
          * The meta object literal for the '{@link org.eclipse.sirius.components.view.diagram.NodeStyleDescription
          * <em>Node Style Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
@@ -4815,30 +5536,6 @@ public interface DiagramPackage extends EPackage {
          * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getNodeStyleDescription()
          */
         EClass NODE_STYLE_DESCRIPTION = eINSTANCE.getNodeStyleDescription();
-
-        /**
-         * The meta object literal for the '<em><b>Label Color</b></em>' reference feature. <!-- begin-user-doc --> <!--
-         * end-user-doc -->
-         *
-         * @generated
-         */
-        EReference NODE_STYLE_DESCRIPTION__LABEL_COLOR = eINSTANCE.getNodeStyleDescription_LabelColor();
-
-        /**
-         * The meta object literal for the '<em><b>Show Icon</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-         * end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute NODE_STYLE_DESCRIPTION__SHOW_ICON = eINSTANCE.getNodeStyleDescription_ShowIcon();
-
-        /**
-         * The meta object literal for the '<em><b>Label Icon</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-         * end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute NODE_STYLE_DESCRIPTION__LABEL_ICON = eINSTANCE.getNodeStyleDescription_LabelIcon();
 
         /**
          * The meta object literal for the
@@ -4861,6 +5558,44 @@ public interface DiagramPackage extends EPackage {
 
         /**
          * The meta object literal for the
+         * '{@link org.eclipse.sirius.components.view.diagram.impl.ConditionalInsideLabelStyleImpl <em>Conditional
+         * Inside Label Style</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         * @see org.eclipse.sirius.components.view.diagram.impl.ConditionalInsideLabelStyleImpl
+         * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getConditionalInsideLabelStyle()
+         */
+        EClass CONDITIONAL_INSIDE_LABEL_STYLE = eINSTANCE.getConditionalInsideLabelStyle();
+
+        /**
+         * The meta object literal for the '<em><b>Style</b></em>' containment reference feature. <!-- begin-user-doc
+         * --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference CONDITIONAL_INSIDE_LABEL_STYLE__STYLE = eINSTANCE.getConditionalInsideLabelStyle_Style();
+
+        /**
+         * The meta object literal for the
+         * '{@link org.eclipse.sirius.components.view.diagram.impl.ConditionalOutsideLabelStyleImpl <em>Conditional
+         * Outside Label Style</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         * @see org.eclipse.sirius.components.view.diagram.impl.ConditionalOutsideLabelStyleImpl
+         * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getConditionalOutsideLabelStyle()
+         */
+        EClass CONDITIONAL_OUTSIDE_LABEL_STYLE = eINSTANCE.getConditionalOutsideLabelStyle();
+
+        /**
+         * The meta object literal for the '<em><b>Style</b></em>' containment reference feature. <!-- begin-user-doc
+         * --> <!-- end-user-doc -->
+         *
+         * @generated
+         */
+        EReference CONDITIONAL_OUTSIDE_LABEL_STYLE__STYLE = eINSTANCE.getConditionalOutsideLabelStyle_Style();
+
+        /**
+         * The meta object literal for the
          * '{@link org.eclipse.sirius.components.view.diagram.impl.RectangularNodeStyleDescriptionImpl <em>Rectangular
          * Node Style Description</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
          *
@@ -4869,22 +5604,6 @@ public interface DiagramPackage extends EPackage {
          * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getRectangularNodeStyleDescription()
          */
         EClass RECTANGULAR_NODE_STYLE_DESCRIPTION = eINSTANCE.getRectangularNodeStyleDescription();
-
-        /**
-         * The meta object literal for the '<em><b>With Header</b></em>' attribute feature. <!-- begin-user-doc --> <!--
-         * end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute RECTANGULAR_NODE_STYLE_DESCRIPTION__WITH_HEADER = eINSTANCE.getRectangularNodeStyleDescription_WithHeader();
-
-        /**
-         * The meta object literal for the '<em><b>Display Header Separator</b></em>' attribute feature. <!--
-         * begin-user-doc --> <!-- end-user-doc -->
-         *
-         * @generated
-         */
-        EAttribute RECTANGULAR_NODE_STYLE_DESCRIPTION__DISPLAY_HEADER_SEPARATOR = eINSTANCE.getRectangularNodeStyleDescription_DisplayHeaderSeparator();
 
         /**
          * The meta object literal for the
@@ -5559,6 +6278,26 @@ public interface DiagramPackage extends EPackage {
          * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getSynchronizationPolicy()
          */
         EEnum SYNCHRONIZATION_POLICY = eINSTANCE.getSynchronizationPolicy();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.sirius.components.view.diagram.InsideLabelPosition
+         * <em>Inside Label Position</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         * @see org.eclipse.sirius.components.view.diagram.InsideLabelPosition
+         * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getInsideLabelPosition()
+         */
+        EEnum INSIDE_LABEL_POSITION = eINSTANCE.getInsideLabelPosition();
+
+        /**
+         * The meta object literal for the '{@link org.eclipse.sirius.components.view.diagram.OutsideLabelPosition
+         * <em>Outside Label Position</em>}' enum. <!-- begin-user-doc --> <!-- end-user-doc -->
+         *
+         * @generated
+         * @see org.eclipse.sirius.components.view.diagram.OutsideLabelPosition
+         * @see org.eclipse.sirius.components.view.diagram.impl.DiagramPackageImpl#getOutsideLabelPosition()
+         */
+        EEnum OUTSIDE_LABEL_POSITION = eINSTANCE.getOutsideLabelPosition();
 
     }
 
