@@ -152,6 +152,7 @@ Form variables declared in a form description will thus be added in the FormDesc
 - https://github.com/eclipse-sirius/sirius-web/issues/3243[#3243] [diagram] Add tools to help manual layout on multiple elements
 - https://github.com/eclipse-sirius/sirius-web/issues/2999[#2999] [formdescriptioneditor] Add the support for read-only _Form Description Editors_.
 - https://github.com/eclipse-sirius/sirius-web/issues/3253[#3253] [diagram] Add a new tool to apply same size on multiple nodes
+- https://github.com/eclipse-sirius/sirius-web/issues/3163[#3163] [gantt] Add support of task drag&drop in task table.
 
 === Improvements
 
