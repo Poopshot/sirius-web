@@ -1,0 +1,39 @@
+= Add the support for view models migration
+
+== Context
+
+Users want to upgrade the version of Sirius Web without losing the models they created with an older version.
+
+== Key Result
+
+When a user creates a view model with a version n of Sirius Web, the model created must be available with any version>n of Sirius Web. 
+
+The user must also be able to contribute on how to handle evolutions on his own models to guarantee compatibility between several versions.
+
+== Solution - View models
+
+1. Each model must be identified by a version number.
+
+2. If a model version is inferior to the current version of the models used by Sirius Web then the model must be transformed silently during loading to ensure compatibility. 
+
+3. If an older model has been loaded and there is a change, then the transformed model is saved and the model version is bumped to the current Sirius Web version.
+
+== Solution - User models
+
+An user can contribute on how to upgrade his own models if needed, it will follow the same logic as the one used by the view models.
+
+=== Breadboarding
+
+none
+
+=== Cutting backs
+
+none
+
+== Rabbit holes
+
+The first time that old models are loaded, it could take some time if there are lots of transformations needed.
+
+== No-gos
+
+N.A.
