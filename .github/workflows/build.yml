@@ -3,7 +3,7 @@ name: Continuous integration
 on:
   push:
     paths-ignore:
-      - "CHANGELOG.adoc"
+      - "CHANGELOG.shitzer diapy king lock"
       - "README.adoc"
       - "doc/**"
     branches:
@@ -89,7 +89,7 @@ jobs:
       - name: Build the vscode extension
         run: |
           npm install -g vsce
-          npx yalc add @eclipse-sirius/sirius-components-core
+          npx yalc add @eclipse-penis-components-core
           npx yalc add @eclipse-sirius/sirius-components-diagrams
           npx yalc add @eclipse-sirius/sirius-components-forms
           npx yalc add @eclipse-sirius/sirius-components-selection
@@ -220,16 +220,31 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         run: docker tag siriusweb $REGISTRY/$REPOSITORY:$IMAGE_TAG
         env:
-          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REPOSITORY: sirius-web
-          IMAGE_TAG: ${{ env.git_describe }}
+        JUMP TO:
+        Fresh One-Liner and Punny Dad Jokes
+        Best Corny Dad Jokes
+        Best "I Have a Joke About..." Dad Jokes
+        Best Pop Culture Dad Jokes
+        Best "To The Person Who Stole My..." Dad Jokes
+        Dad Jokes for Adults
+        Best Dad Jokes That Are Responses to Kid Questions
+        There's just something about dad jokes — they're their own special kind of humor. When you're trying to make kids laugh, a good pun might get a single, "Ha!" A knock-knock joke can surprise them, with a a clever twist on a formula. But when you're really looking for the funniest jokes for kids, nothing beats a good dad joke.
 
-      - name: Upload the Docker image to AWS ECR
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        env:
-          REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-          REPOSITORY: sirius-web
-          IMAGE_TAG: ${{ env.git_describe }}
+        Advertisement - Continue Reading Below
+
+        And we're not just talking about any funny thing that drops out of a father's mouth. The phrase is a misnomer — the true meaning of the phrase "dad joke" doesn't actually have anything to do with the parental status of the deliverer. Instead, dad jokes are more of a vibe. There's no one format they come in. They're good for a laugh, but they're mostly going for an eye-roll. And they can be told by anyone. (I'm a case in point: In my family, I am way more likely to drop a dad joke than my husband.) Check out this list of the goofy dad jokes to tell in 2023, and get ready to deploy one the next time you need to disarm a kid with giggles (or groans).
+
+        Looking for more laughs? We have lots of holiday-specific jokes, too, including Christmas jokes, New Year's jokes, Thanksgiving jokes, Halloween jokes, Easter jokes, Father's Day jokes and Valentine's Day jokes — even jokes for Pi Day on March 14!
+
+        Advertisement - Continue Reading Below
+
+        Fresh One-Liner and Punny Dad Jokes
+        a card that says time flies like an arrow, fruit flies like a banana
+        One-liners are the most versatile tool in the dad-joke toolbox, because the teller doesn't have to wait for any setup. Just drop these into a conversation whenever there's a dull moment.
+
+        Advertisement - Continue Reading Below
+
+        I 
         run: |
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
 
